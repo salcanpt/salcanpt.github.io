@@ -1,0 +1,115 @@
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Automation Network Architecture | Salcan Process Technology</title>
+    
+    <meta name="description" content="Purpose The design of a well-protected automation network involves considering a number of different security aspects including appropriate physical security; logical security; network architecture and...">
+    
+    <meta name="keywords" content="Salcan Process Technology, Automation Engineering, Process control and Automation">
+    <meta name="author" content="Lucid Design,">
+    <meta name="google-site-verification" content="y3uQBwNTW8qCnpLDBtClI382gdWDF08qavmBtggALUQ">
+    
+    
+    <link rel="icon" href="/images/favicon.png" type="image/png">
+    <link href="//fonts.googleapis.com/css?family=Signika+Negative:300,400,600,700" rel="stylesheet" type="text/css">
+    <link href="/css/main.css" rel="stylesheet" type="text/css">
+    <link href="/css/fontawesome.css" rel="stylesheet" type="text/css">
+  </head>
+    <body id="blog-post">
+  
+    <div id="wrap">
+  
+      <div id="header" class="clearfix">
+         <div id="logo">
+           <a href="/"><img src="/images/logo.png" title="Salcan Process Technology" alt="Salcan Process Technology"></a>
+         </div>
+         <div id="sections" class="clearfix">
+            <ul id="nav"><li id="nav-home"><a href="/">Home</a></li><li id="nav-about-us"><a href="/about-us/">About Us</a></li><li id="nav-products"><a href="/products/">Products</a></li><li id="nav-services"><a href="/services/">Services</a></li><li id="nav-projects"><a href="/projects/">Projects</a></li><li class="selected" id="nav-technology-notes"><a href="/technology-notes/">Blog</a></li><li id="nav-contact"><a href="/contact/">Contact</a></li></ul>
+         </div>
+      </div>
+    
+    <div id="content" class="clearfix">
+      <div class="left_column">
+  
+  
+  
+  
+  <h1>Automation Network Architecture</h1>
+  <p class="author">Published on 12 December, 2012 at 09:00</p>
+  
+  <h2>Purpose</h2>
+  <p>The design of a well-protected automation network involves considering a number of different security aspects including appropriate physical security; logical security; network architecture and hardware design; and robust security policies and procedures. This blog post will describe a widely used and recommended Network Architecture and Hardware configuration that could be utilised as a basis to secure your automation network. As noted above, appropriate network architecture is only one facet of creating a secure and reliable automation system.</p>
+  <h2>Unique Automation Requirements</h2>
+  <p>With many automation systems adapting to common enterprise network technologies such as TCP/IP often automation network security has been left to those who understand and have experience in this field – namely the IT department. &nbsp;This makes sense. However, those involved in securing automation networks must first understand that there are a number of critical differences between enterprise and automation network performance requirements. A good description of these differences can be found in Section 2.8 of the “IAONA Handbook Network Security” Version 1.5. The section is titled “Differences between Office and Automation Networks”.</p>
+  <h2>A Recommended Architecture</h2>
+  <p>Firewalls are central to securing a network. However, there are many different hardware configurations in use, let alone firewall rule configuration. An excellent resource for planning your automation network architecture is the UK’s Centre for the Protection of National Infrastructure’s. Good Practice Guide titled “Firewall Deployment for SCADA and Process Control Networks” (15th February 2005). The guide describes many different firewall architecture configurations, their advantages and disadvantages and rates each configuration for measures of “Security”, “Manageability” and “Scalability”. &nbsp;One of the highest rated architectures, which will be described here, is the “Paired Firewall with Demilitarised Zone and VLAN” configuration. This configuration recommends spreading the automation assets and services across three separate sub-networks as described in Table 1 below.</p>
+  <table align="center" border="0" cellpadding="1" cellspacing="1">
+      <caption><strong>Table 1 - Division of Typical Services and Hardware</strong></caption>
+      <tbody>
+          <tr>
+              <th>
+                  Sub-Network</th>
+              <th>
+                  Typical Services Provided</th>
+              <th>
+                  <strong>Hardware Examples</strong></th>
+          </tr>
+          <tr>
+              <td>Process Control Network (PCN)</td>
+              <td>Monitoring, control and visualisation of the process</td>
+              <td>I/O cards, PLC’s, RTU’s, SCADA servers, HMI clients (Typically ISA 95 Level 1&amp;2 devices)</td>
+          </tr>
+          <tr>
+              <td>Process Information Network (PIN)</td>
+              <td>Process data storage, Remote Access Servers, Web client servers for PCN</td>
+              <td>Data Historian, Alarms and Events Server, VPN server (Typically ISA Level 3 devices)</td>
+          </tr>
+          <tr>
+              <td>Enterprise Network (EN</td>
+              <td>Typical business network bus with PCN configuration, trending and reporting clients</td>
+              <td>PLC and SCADA configuration client, trending and reporting client</td>
+          </tr>
+      </tbody>
+  </table>
+  <p>The PIN network is placed in a demilitarised Zone (DMZ) which is created by using a paired-firewall configuration. &nbsp;See figure 1 below for the example of a recommended network architecture.</p>
+  <div style="text-align: center;"><img alt="Automation Network Architecture" src="/assets/50c79e27dabe9d1d9200e7b8/main_content/network_architecture.jpg"></div>
+  <h2>Demilitarised Zone</h2>
+  <p>A DMZ is by definition a separate sub-network that contains and exposes its services to a larger less trusted network such as the internet or the EN. A paired firewall configuration is used to create the DMZ. Under typical circumstances, both the PCN and EN shall be able to communicate with the PIN, but not with each other i.e. the PCN and EN shall not communicate directly with each other.</p>
+  <h2>Virtual Local Area Network</h2>
+  <p>The architecture described recommends that a separate Virtual Local Area Network (VLAN) be created for the PCN. A VLAN is a group of hosts with a common set of requirements that communicate as if they were attached to the same network regardless of their physical location. A VLAN is created via software configuration.</p>
+  <p>Those clients physically residing on the EN but requiring access to the PCN should be part of the PCN VLAN. An example of this may be an Automation Engineer’s PC residing on the EN. On this PC the engineer would typically have software that will allow him or her to monitor, trouble-shoot and reconfigure the PCN and its constituent devices. &nbsp;Hence, the Automation Engineer’s PC would require direct access to the PCN. &nbsp;Being located on the PCN VLAN would allow the engineer to achieve this.</p>
+  <h2>Advantages of "Paired Firewall with DMZ and VLAN"</h2>
+  <p>Some advantages of the paired firewall with DMZ and LAN are described below.</p>
+  <h3>Separation of Responsibilities</h3>
+  <p>One advantage of having a paired firewall configuration is that it allows the Automation and IT groups to have clearly separate device responsibility with the IT group managing the “Front-End” firewall and the Automation group managing the “Back-End” Firewall. This ensures that firewall management does not fall through the cracks as often one group can assume the other group has responsibility for firewall management.</p>
+  <h3>Air-Gap Security Option</h3>
+  <p>Each of the sub-networks described above are physically separate. Each sub-network is connected to a separate switch allowing IT and Automation managers to monitor a single connection for security threats. &nbsp;Should a security issue arise within any one of the three networks; the network in question can be quickly disconnected preventing the infection of the other two networks. This method of protection is known as the “air-gap model”. It is sometimes referred to as the “draw-bridge” method.</p>
+  <p>The described architecture allows the PCN to carryout effective process control in the event that the “draw-bridge” is lifted. Certain processes and services would indeed be impacted if the PCN were required to operate independently (namely ISA 95 level 3 &amp; 4 – Manufacturing Operations Management and Business Planning /Logistics). &nbsp;However, the business would continue to have the ability to operate its industrial processes and equipment in a safe manner while still being able to satisfy the customer with product.</p>
+  <h3>Front-End Firewall</h3>
+  <p>The function of the front-end firewall is to allow only trusted traffic from the EN or internet to access the PIN hosts and vice versa. This is carried out by configuring firewall rules. The recommended default rule for the front-end firewall is to “Deny All” traffic with pin-hole exceptions made for traffic that is essential for business. The difficulty that arises here is trying to define what traffic is absolutely essential for business and does not impact network security. It is important that outgoing traffic rules be as carefully analysed and deployed as incoming traffic rules in order to prevent the PIN becoming the source of a virus that propagates to other sub-networks.</p>
+  <h3>Back-End Firewall</h3>
+  <p>The function of the back-end firewall is to allow only trusted traffic from the PIN to access the PCN or vice versa. Again the recommended default rule for the front-end firewall is to “Deny All” traffic with pin-hole exceptions made for traffic that is essential for business. Determining what traffic is “essential for business” communication between the PCN and PIN should be much easier than between the EN to the PCN. Again it is important that outgoing traffic rules be as carefully analysed and deployed as incoming traffic rules in order to prevent the PCN becoming the source of a virus that propagates to other sub-networks.</p>
+  <p>Brian O'Connell&nbsp;</p>
+  
+  <p class="go_back"><a href="/technology-notes/">« Go Back</a></p>
+  
+    </div>
+     
+  
+      <div class="right_column" id="sidebar">
+         
+          <div class="sidebar">
+            <p class="side_text">"With a strong operational background SALCAN Process Technology are conscious of executing projects that deliver on time and to budget and can be operated with high levels of reliability over the life of process facilities"</p>
+          </div>
+  
+      </div>
+  
+   </div>
+     <div id="footer">
+       <p class="tagline">Process Technology, Process Control and Automation Engineering</p>
+       <p>©2021 Salcan Process Technology<a href="http://luciddesign.co.nz" title="Lucid Design - beautiful, elegant design for web and print, Nelson, New Zealand">Website designed by Lucid Design</a></p>
+     </div>
+  
+    </div>
+  
+  
+  </body></html>
