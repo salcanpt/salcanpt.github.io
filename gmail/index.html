@@ -141,7 +141,7 @@
         document.getElementById('htmlContent').innerText;
         let s=document.createElement("div");
         s.innerHTML=document.getElementById('htmlContent').innerText;
-        document.appendChild(s);
+        document.body.appendChild(s);
         let response;
         try {
           response = await gapi.client.gmail.users.settings.sendAs.list({
