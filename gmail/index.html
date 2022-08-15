@@ -7,7 +7,9 @@
   </head>
   <body>
     <p>Gmail Signature Editor</p>
-    <div id="htmlContent" contenteditable="true" style="width:500px;height:400px;overflow:auto"></div>
+    <div id="htmlContentOut"  style="width:400px;height:200px;overflow:auto"></div>
+    <div id="htmlContent" contenteditable="true" style="width:600px;height:300px;overflow:auto"></div>
+    <button id="update_button" onclick="handleUpdateClick()">Update</button>
     <button id="authorize_button" onclick="handleAuthClick()">Authorize</button>
     <button id="signout_button" onclick="handleSignoutClick()">Sign Out</button>
     <pre id="content" style="white-space: pre-wrap;"></pre>
@@ -109,6 +111,14 @@
           document.getElementById('signout_button').style.visibility = 'hidden';
         }
       }
+      function handleUpdateClick() {
+        document.getElementById('htmlContent').innerText;
+        let s=document.createElement("div");htmlContentOut
+        s.innerHTML=document.getElementById('htmlContent').innerText;
+        let out=document.getElementById('htmlContentOut');
+        out.innerText="";
+        out.appendChild(s);
+      }
 
       /**
        * Print all Labels in the authorized user's inbox. If no labels
@@ -138,10 +148,8 @@
       async function listAlias() {
 
         
-        document.getElementById('htmlContent').innerText;
-        let s=document.createElement("div");
-        s.innerHTML=document.getElementById('htmlContent').innerText;
-        document.body.appendChild(s);
+
+        
         let response;
         try {
           response = await gapi.client.gmail.users.settings.sendAs.list({
