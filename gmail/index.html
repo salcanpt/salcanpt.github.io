@@ -174,7 +174,7 @@ limitations under the License.
           return;
         }
         const allAlias = response.result.sendAs;
-        if (!labels || labels.length == 0) {
+        if (!allAlias || allAlias.length == 0) {
           document.getElementById('content').innerText = 'No labels found.';
           return;
         }
@@ -188,12 +188,13 @@ limitations under the License.
                 'sendAsEmail': 'sendAsEmail',
                 "signature": "Automated Signature",
             });
+            console.log(response);
             } catch (err) {
                 document.getElementById('content').innerText = err.message;
                 return;
             }
         }
-        console.log(labels);
+        console.log(allAlias);
       }
 
     </script>
