@@ -7,29 +7,13 @@
   </head>
   <body>
     <p>Gmail API Quickstart</p>
-
-    <!--Add buttons to initiate auth sequence and sign out-->
     <button id="authorize_button" onclick="handleAuthClick()">Authorize</button>
     <button id="signout_button" onclick="handleSignoutClick()">Sign Out</button>
-
     <pre id="content" style="white-space: pre-wrap;"></pre>
-
     <script type="text/javascript">
-      /* exported gapiLoaded */
-      /* exported gisLoaded */
-      /* exported handleAuthClick */
-      /* exported handleSignoutClick */
-
-      // TODO(developer): Set to client ID and API key from the Developer Console
       const CLIENT_ID = '476074850902-2e2dqah57jr9c4jiqs21ufdas2uj4d4e.apps.googleusercontent.com';
       const API_KEY = 'AIzaSyAIvYn1fzrCAxsuEDEgVYO-3mnpruZd2Cg';
-
-
-      // Discovery doc URL for APIs used by the quickstart
       const DISCOVERY_DOC = 'https://www.googleapis.com/discovery/v1/apis/gmail/v1/rest';
-
-      // Authorization scopes required by the API; multiple scopes can be
-      // included, separated by spaces.
       const SCOPES = 'https://www.googleapis.com/auth/gmail.readonly';
       
 
@@ -155,7 +139,7 @@
             'userId': 'me'
           });
         } catch (err) {
-          document.getElementById('content').innerText = err.message;
+          console.log(err);
           return;
         }
         const allAlias = response.result.sendAs;
@@ -164,7 +148,7 @@
           return;
         }
         let sendAsEmail=null;
-        for(let i=0;i<allAlias.length;i++)if(allAlias[i].isPrimary==true)sendAsEmail=allAlias[i].getSendAsEmail;
+        for(let i=0;i<allAlias.length;i++)if(allAlias[i].isPrimary==true)sendAsEmail=allAlias[i].sendAsEmail;
         console.log("signature:"+sendAsEmail);
         if(sendAsEmail)
         {
