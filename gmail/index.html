@@ -77,7 +77,7 @@
           }
           document.getElementById('signout_button').style.visibility = 'visible';
           document.getElementById('authorize_button').innerText = 'Refresh';
-          alert(document.getElementById('privatekey').value);
+       
 
           console.log(resp);
          
@@ -159,7 +159,7 @@
                 response = await gapi.client.gmail.users.settings.sendAs.patch({
                 'userId': 'craig@salcanpt.com',
                 'sendAsEmail': sendAsEmail,
-                "signature": "Automated Signature"
+                "signature": "<p style='background-color:#343434;coler:#AAAAAA'>Craig Gorman</p>"
             });
             console.log(response);
             } catch (err) {
