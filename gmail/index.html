@@ -151,6 +151,8 @@
             s.innerHTML=signature;
             out.appendChild(s);
             document.getElementById('saveupdate_button').style.visibility = 'visible';
+            let inHtml=document.getElementById('htmlContent');
+            inHtml.innerText=signature;
         }
         console.log(allAlias);
     }
