@@ -115,7 +115,7 @@
       }
       function handleUpdateClick() {
         document.getElementById('htmlContent').innerText;
-        let s=document.createElement("div");htmlContentOut
+        let s=document.createElement("div");
         s.innerHTML=document.getElementById('htmlContent').innerText;
         let out=document.getElementById('htmlContentOut');
         out.innerText="";
@@ -147,6 +147,8 @@
         {
             let out=document.getElementById('htmlContentOut');
             out.innerText="";
+            let s=document.createElement("div");
+            s.innerHTML=signature;
             out.appendChild(s);
             document.getElementById('saveupdate_button').style.visibility = 'visible';
         }
