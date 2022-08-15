@@ -45,13 +45,8 @@ limitations under the License.
 
       // Authorization scopes required by the API; multiple scopes can be
       // included, separated by spaces.
-      const SCOPES = 'https://www.googleapis.com/auth/gmail.readonly https://www.googleapis.com/auth/admin.directory.user.readonly';
-
-      // Discovery doc URL for APIs used by the quickstart
-      const DISCOVERY_DOC2 = 'https://www.googleapis.com/discovery/v1/apis/admin/directory_v1/rest';
-
-
-
+      const SCOPES = 'https://www.googleapis.com/auth/gmail.readonly';
+      
 
       let tokenClient;
       let gapiInited = false;
@@ -74,7 +69,7 @@ limitations under the License.
       async function intializeGapiClient() {
         await gapi.client.init({
           apiKey: API_KEY,
-          discoveryDocs: [DISCOVERY_DOC,DISCOVERY_DOC2],
+          discoveryDocs: [DISCOVERY_DOC],
         });
         gapiInited = true;
         maybeEnableButtons();
@@ -112,8 +107,10 @@ limitations under the License.
           }
           document.getElementById('signout_button').style.visibility = 'visible';
           document.getElementById('authorize_button').innerText = 'Refresh';
+
+          console.log(resp);
+         
           await listLabels();
-          await listRoles();
         };
 
         if (gapi.client.getToken() === null) {
@@ -163,33 +160,6 @@ limitations under the License.
         const output = labels.reduce(
             (str, label) => `${str}${label.name}\n`,
             'Labels:\n');
-        document.getElementById('content').innerText = output;
-      }
-
-
-      async function listRoles() {
-        let response;
-        try {
-          const request = {
-            'customer': 'my_customer',
-            'maxResults': 10,
-            'orderBy': 'email',
-          };
-          response = await gapi.client.directory.users.list(request);
-        } catch (err) {
-          document.getElementById('content').innerText = err.message;
-          return;
-        }
-
-        const users = response.result.users;
-        if (!users || users.length == 0) {
-          document.getElementById('content').innerText = 'No users found.';
-          return;
-        }
-        // Flatten to string to display
-        const output = users.reduce(
-            (str, user) => `${str}${user.primaryEmail} (${user.name.fullName})\n`,
-            'Users:\n');
         document.getElementById('content').innerText = output;
       }
     </script>
