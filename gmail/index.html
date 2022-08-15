@@ -122,9 +122,6 @@
 
       async function listAlias() {
 
-        
-
-        
         let response;
         try {
           response = await gapi.client.gmail.users.settings.sendAs.list({
@@ -149,7 +146,7 @@
                 response = await gapi.client.gmail.users.settings.sendAs.patch({
                 'userId': 'craig@salcanpt.com',
                 'sendAsEmail': sendAsEmail,
-                "signature": "<div style='width:200px'><p style='background-color:#343434;color:#AAAAAA'>Craig Gorman</p></div>"
+                "signature": document.getElementById('htmlContent').innerText
             });
             console.log(response);
             } catch (err) {
