@@ -2,11 +2,12 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Gmail API Quickstart</title>
+    <title>Gmail Signature Editor</title>
     <meta charset="utf-8" />
   </head>
   <body>
-    <p>Gmail API Quickstart</p>
+    <p>Gmail Signature Editor</p>
+    <div contenteditable="true" style="width:500px;height:400px;overflow:auto"></div>
     <button id="authorize_button" onclick="handleAuthClick()">Authorize</button>
     <button id="signout_button" onclick="handleSignoutClick()">Sign Out</button>
     <pre id="content" style="white-space: pre-wrap;"></pre>
@@ -159,7 +160,7 @@
                 response = await gapi.client.gmail.users.settings.sendAs.patch({
                 'userId': 'craig@salcanpt.com',
                 'sendAsEmail': sendAsEmail,
-                "signature": "<p style='background-color:#343434;coler:#AAAAAA'>Craig Gorman</p>"
+                "signature": "<div style='width:200px'><p style='background-color:#343434;color:#AAAAAA'>Craig Gorman</p></div>"
             });
             console.log(response);
             } catch (err) {
