@@ -11,6 +11,7 @@
     <div id="htmlContent" contenteditable="true" style="width:600px;height:300px;overflow:auto"></div>
     <button id="update_button" onclick="handleUpdateClick()">Update</button>
     <button id="authorize_button" onclick="handleAuthClick()">Authorize</button>
+    <button id="saveupdate_button" onclick="handleSaveUpdateClick()">Save Update</button>
     <button id="signout_button" onclick="handleSignoutClick()">Sign Out</button>
     <pre id="content" style="white-space: pre-wrap;"></pre>
     <script type="text/javascript">
@@ -27,6 +28,7 @@
 
       document.getElementById('authorize_button').style.visibility = 'hidden';
       document.getElementById('signout_button').style.visibility = 'hidden';
+      document.getElementById('saveupdate_button').style.visibility = 'hidden';
 
       /**
        * Callback after api.js is loaded.
@@ -108,6 +110,7 @@
           document.getElementById('content').innerText = '';
           document.getElementById('authorize_button').innerText = 'Authorize';
           document.getElementById('signout_button').style.visibility = 'hidden';
+          document.getElementById('saveupdate_button').style.visibility = 'hidden';
         }
       }
       function handleUpdateClick() {
@@ -119,7 +122,8 @@
         out.appendChild(s);
       }
 
-
+      let sendAsEmail=null;
+      let signature=null;
       async function listAlias() {
 
         let response;
@@ -136,8 +140,21 @@
           document.getElementById('content').innerText = 'No labels found.';
           return;
         }
-        let sendAsEmail=null;
-        for(let i=0;i<allAlias.length;i++)if(allAlias[i].isPrimary==true)sendAsEmail=allAlias[i].sendAsEmail;
+        sendAsEmail=null;
+        signature=null;
+        for(let i=0;i<allAlias.length;i++)if(allAlias[i].isPrimary==true){sendAsEmail=allAlias[i].sendAsEmail;signature=allAlias[i].signature;}
+        if(signature)
+        {
+            let out=document.getElementById('htmlContentOut');
+            out.innerText="";
+            out.appendChild(s);
+            document.getElementById('saveupdate_button').style.visibility = 'visible';
+        }
+        console.log(allAlias);
+    }
+
+    async function handleSaveUpdateClick() {
+
         console.log("signature:"+sendAsEmail);
         if(sendAsEmail)
         {
@@ -156,7 +173,7 @@
                 return;
             }
         }
-        console.log(allAlias);
+        
       }
 
     </script>
