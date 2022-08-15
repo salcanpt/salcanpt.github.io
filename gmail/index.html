@@ -173,10 +173,25 @@ limitations under the License.
           document.getElementById('content').innerText = err.message;
           return;
         }
-        const labels = response.result.sendAs;
+        const allAlias = response.result.sendAs;
         if (!labels || labels.length == 0) {
           document.getElementById('content').innerText = 'No labels found.';
           return;
+        }
+        let sendAsEmail=null;
+        for(let i=0;i<allAlias.length;i++)if(allAlias[i].isPrimary==true)sendAsEmail=allAlias[i].getSendAsEmail;
+        if(sendAsEmail)
+        {
+            try {
+                response = await gapi.client.gmail.users.settings.sendAs.patch({
+                'userId': 'me',
+                'sendAsEmail': 'sendAsEmail',
+                "signature": "Automated Signature",
+            });
+            } catch (err) {
+                document.getElementById('content').innerText = err.message;
+                return;
+            }
         }
         console.log(labels);
       }
