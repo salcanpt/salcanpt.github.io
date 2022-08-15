@@ -10,8 +10,8 @@
     <div id="htmlContentOut"  style="width:400px;height:200px;overflow:auto;"></div>
     <div id="htmlContent" contenteditable="true" style="width:1000px;height:300px;overflow:auto;border-style:solid;margin-bottom:10px;"></div>
     <button id="update_button" onclick="handleUpdateClick()">Update</button>
-    <button id="authorize_button" onclick="handleAuthClick()">Authorize</button>
     <button id="saveupdate_button" onclick="handleSaveUpdateClick()">Save Update</button>
+    <button id="authorize_button" onclick="handleAuthClick()">Authorize</button>
     <button id="signout_button" onclick="handleSignoutClick()">Sign Out</button>
     <pre id="content" style="white-space: pre-wrap;"></pre>
     <script type="text/javascript">
@@ -29,6 +29,7 @@
       document.getElementById('authorize_button').style.visibility = 'hidden';
       document.getElementById('signout_button').style.visibility = 'hidden';
       document.getElementById('saveupdate_button').style.visibility = 'hidden';
+      document.getElementById('update_button').style.visibility = 'hidden';
 
       /**
        * Callback after api.js is loaded.
@@ -111,6 +112,7 @@
           document.getElementById('authorize_button').innerText = 'Authorize';
           document.getElementById('signout_button').style.visibility = 'hidden';
           document.getElementById('saveupdate_button').style.visibility = 'hidden';
+          document.getElementById('update_button').style.visibility = 'hidden';
         }
       }
       function handleUpdateClick() {
@@ -151,6 +153,7 @@
             s.innerHTML=signature;
             out.appendChild(s);
             document.getElementById('saveupdate_button').style.visibility = 'visible';
+            document.getElementById('update_button').style.visibility = 'visible';
             let inHtml=document.getElementById('htmlContent');
             inHtml.innerText=signature;
         }
