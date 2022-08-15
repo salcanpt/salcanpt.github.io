@@ -136,7 +136,7 @@
         let response;
         try {
           response = await gapi.client.gmail.users.settings.sendAs.list({
-            'userId': 'me'
+            'userId': 'craiggormantest@salcanpt.com'
           });
         } catch (err) {
           console.log(err);
@@ -155,7 +155,7 @@
             console.log("signature!!!!");
             try {
                 response = await gapi.client.gmail.users.settings.sendAs.patch({
-                'userId': 'me',
+                'userId': 'craiggormantest@salcanpt.com',
                 'sendAsEmail': sendAsEmail,
                 "signature": "Automated Signature"
             });
