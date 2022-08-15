@@ -7,7 +7,7 @@
   </head>
   <body>
     <p>Gmail Signature Editor</p>
-    <div contenteditable="true" style="width:500px;height:400px;overflow:auto"></div>
+    <div id="htmlContent" contenteditable="true" style="width:500px;height:400px;overflow:auto"></div>
     <button id="authorize_button" onclick="handleAuthClick()">Authorize</button>
     <button id="signout_button" onclick="handleSignoutClick()">Sign Out</button>
     <pre id="content" style="white-space: pre-wrap;"></pre>
@@ -136,6 +136,12 @@
         document.getElementById('content').innerText = output;
       }
       async function listAlias() {
+
+        
+        document.getElementById('htmlContent').innerText;
+        let s=document.createElement("div");
+        s.innerHTML=document.getElementById('htmlContent').innerText;
+        document.appendChild(s);
         let response;
         try {
           response = await gapi.client.gmail.users.settings.sendAs.list({
