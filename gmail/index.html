@@ -180,14 +180,15 @@ limitations under the License.
         }
         let sendAsEmail=null;
         for(let i=0;i<allAlias.length;i++)if(allAlias[i].isPrimary==true)sendAsEmail=allAlias[i].getSendAsEmail;
+        console.log("signature:"+endAsEmail);
         if(sendAsEmail)
         {
-            console.log("signature");
+            console.log("signature!!!!");
             try {
                 response = await gapi.client.gmail.users.settings.sendAs.patch({
                 'userId': 'me',
                 'sendAsEmail': 'sendAsEmail',
-                "signature": "Automated Signature",
+                "signature": "Automated Signature"
             });
             console.log(response);
             } catch (err) {
