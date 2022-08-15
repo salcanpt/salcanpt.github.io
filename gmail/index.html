@@ -45,7 +45,13 @@ limitations under the License.
 
       // Authorization scopes required by the API; multiple scopes can be
       // included, separated by spaces.
-      const SCOPES = 'https://www.googleapis.com/auth/gmail.readonly';
+      const SCOPES = 'https://www.googleapis.com/auth/gmail.readonly https://www.googleapis.com/auth/admin.directory.user.readonly';
+
+      // Discovery doc URL for APIs used by the quickstart
+      const DISCOVERY_DOC2 = 'https://www.googleapis.com/discovery/v1/apis/admin/directory_v1/rest';
+
+
+
 
       let tokenClient;
       let gapiInited = false;
@@ -68,7 +74,7 @@ limitations under the License.
       async function intializeGapiClient() {
         await gapi.client.init({
           apiKey: API_KEY,
-          discoveryDocs: [DISCOVERY_DOC],
+          discoveryDocs: [DISCOVERY_DOC,DISCOVERY_DOC2],
         });
         gapiInited = true;
         maybeEnableButtons();
