@@ -185,36 +185,25 @@
         }
         
       }
-      async function handleExample1Click()
+      async function handleExampleClick(id)
       {
-        let x=document.getElementById('example1').innerHTML;
+        let x=document.getElementById(id).innerHTML;
         x=x.replaceAll("Firstname","Craig");
+        x=x.replaceAll("Lastname","Gorman");
+        x=x.replaceAll("email@salcanpt.com","craig@salcanpt.com");
+        x=x.replaceAll("+61400000000","+61447680379");
         document.getElementById('htmlContent').innerText=x;
         document.getElementById('htmlContentOut').innerHTML=x;
       }
 
-      async function handleExample2Click()
-      {
-        let x=document.getElementById('example2').innerHTML;
-        x=x.replaceAll("Firstname","Craig");
-        document.getElementById('htmlContent').innerText=x;
-        document.getElementById('htmlContentOut').innerHTML=x;
-      }
 
-      async function handleExample3Click()
-      {
-        let x=document.getElementById('example3').innerHTML;
-        x=x.replaceAll("Firstname","Craig");
-        document.getElementById('htmlContent').innerText=x;
-        document.getElementById('htmlContentOut').innerHTML=x;
-      }
     </script>
     <script async defer src="https://apis.google.com/js/api.js" onload="gapiLoaded()"></script>
     <script async defer src="https://accounts.google.com/gsi/client" onload="gisLoaded()"></script>
     <br>
     <p>Examples</p>
     <br>
-    <button id="example1Button" onclick="handleExample1Click()">Use Example 1</button>
+    <button id="example1Button" onclick="handleExampleClick('example1')">Use Example 1</button>
     <div id="example1">
         <div style="width:300px;background-color:#343434;color:#dddddd">
         <div style="background-image:url(http://www.salcanpt.com/images/logo_192x50.png);width:50px;height:50px;float:left"></div>
@@ -227,7 +216,7 @@
     </div>
     <br>
     <br>
-    <button id="example2Button" onclick="handleExample2Click()">Use Example 2</button>
+    <button id="example2Button" onclick="handleExampleClick('example2')">Use Example 2</button>
     <div id="example2">
         <div style="width:300px;">
         <div style="background-image:url(http://www.salcanpt.com/images/logo_192x50.png);width:50px;height:50px;float:left;background-color:#343434"></div>
@@ -240,7 +229,7 @@
     </div>
     <br>
     <br>
-    <button id="example3Button" onclick="handleExample3Click()">Use Example 3</button>
+    <button id="example3Button" onclick="handleExampleClick('example3')">Use Example 3</button>
     <div id="example3">
         <div style="width:300px;background-color:#343434;color:#dddddd">
         <div style="background-image:url(http://www.salcanpt.com/images/logo_192x50.png);width:50px;height:50px;float:left"></div>
