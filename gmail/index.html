@@ -30,7 +30,7 @@
       document.getElementById('signout_button').style.visibility = 'hidden';
       document.getElementById('saveupdate_button').style.visibility = 'hidden';
       document.getElementById('update_button').style.visibility = 'hidden';
-      document.getElementById('htmlContent').style.visibility = 'hidden';
+      document.getElementById('htmlContent').style.display = 'none';
 
       /**
        * Callback after api.js is loaded.
@@ -114,7 +114,7 @@
           document.getElementById('signout_button').style.visibility = 'hidden';
           document.getElementById('saveupdate_button').style.visibility = 'hidden';
           document.getElementById('update_button').style.visibility = 'hidden';
-      document.getElementById('htmlContent').style.visibility = 'hidden';
+      document.getElementById('htmlContent').style.visibility = 'none';
         }
       }
       function handleUpdateClick() {
@@ -156,7 +156,7 @@
             out.appendChild(s);
             document.getElementById('saveupdate_button').style.visibility = 'visible';
             document.getElementById('update_button').style.visibility = 'visible';
-            document.getElementById('htmlContent').style.visibility = 'visible';
+            document.getElementById('htmlContent').style.visibility = '';
             let inHtml=document.getElementById('htmlContent');
             inHtml.innerText=signature;
         }
