@@ -51,7 +51,12 @@
         });
         gapiInited = true;
         maybeEnableButtons();
+        var GoogleAuth = gapi.auth2.getAuthInstance();
+        var user = GoogleAuth.currentUser.get();
+        console.log(user);
       }
+
+      
 
       /**
        * Callback after Google Identity Services are loaded.
