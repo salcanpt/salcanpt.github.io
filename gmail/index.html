@@ -185,11 +185,57 @@
         }
         
       }
+      handleExample1Click()
+      {
+        let x=document.getElementById('example1').innerText;
+        document.getElementById('htmlContent').innerText=x;
+        document.getElementById('htmlContentOut').innerHTML=x;
+      }
+
+      handleExample2Click()
+      {
+        let x=document.getElementById('example2').innerText;
+        document.getElementById('htmlContent').innerText=x;
+        document.getElementById('htmlContentOut').innerHTML=x;
+      }
+
+      handleExample3Click()
+      {
+        let x=document.getElementById('example3').innerText;
+        document.getElementById('htmlContent').innerText=x;
+        document.getElementById('htmlContentOut').innerHTML=x;
+      }
     </script>
     <script async defer src="https://apis.google.com/js/api.js" onload="gapiLoaded()"></script>
     <script async defer src="https://accounts.google.com/gsi/client" onload="gisLoaded()"></script>
     <p>Examples</p>
-    <div>
+    <br>
+    <button id="example1Button" onclick="handleExample1Click()">Use Example 1</button>
+    <div id="example1">
+        <div style="width:300px;background-color:#343434;color:#dddddd">
+        <div style="background-image:url(http://www.salcanpt.com/images/logo_192x50.png);width:50px;height:50px;float:left"></div>
+        <p style="font-size:16px;margin:4px;padding-left:50px">Craig Gorman</p>
+        <p style="font-size:12px;margin:4px;padding-left:50px;color:#dddddd">
+        <a href="mailto:craig@salcanpt.com" style="color:#dddddd" target="_blank">craig@salcanpt.com</a>
+        </p>
+        <p style="font-size:12px;margin:4px;padding-left:50px">0447680379</p>
+        </div>
+    </div>
+    <br>
+    <button id="example2Button" onclick="handleExample2Click()">Use Example 2</button>
+    <div id="example2">
+        <div style="width:300px;background-color:#343434;color:#dddddd">
+        <div style="background-image:url(http://www.salcanpt.com/images/logo_192x50.png);width:50px;height:50px;float:left"></div>
+        <p style="font-size:16px;margin:4px;padding-left:50px">Craig Gorman</p>
+        <p style="font-size:12px;margin:4px;padding-left:50px;color:#dddddd">
+        <a href="mailto:craig@salcanpt.com" style="color:#dddddd" target="_blank">craig@salcanpt.com</a>
+        </p>
+        <p style="font-size:12px;margin:4px;padding-left:50px">0447680379</p>
+        </div>
+    </div>
+    <br>
+    <button id="example3Button" onclick="handleExample3Click()">Use Example 3</button>
+    <div id="example3">
         <div style="width:300px;background-color:#343434;color:#dddddd">
         <div style="background-image:url(http://www.salcanpt.com/images/logo_192x50.png);width:50px;height:50px;float:left"></div>
         <p style="font-size:16px;margin:4px;padding-left:50px">Craig Gorman</p>
