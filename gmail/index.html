@@ -133,7 +133,18 @@
                 "primaryEmail": "craiggormantest@salcanpt.com",
                 "name": { "givenName": "Craig", "familyName": "Gorman", "fullName": "Craig Gorman" },
                 "isAdmin": false,
-                "isDelegatedAdmin": false,
+                "isDelegatedAdmin": false,                "emails": [
+                  {
+                    "address": "craiggormantest@salcanpt.com",
+                    "primary": true
+                  },
+                  {
+                    "address": "craiggormantest@salcanpt.com.au"
+                  },
+                  {
+                    "address": "craiggormantest@salcanpt.com.test-google-a.com"
+                  }
+                ],
                 "agreedToTerms": true,
                 "suspended": false,
                 "archived": false,
@@ -163,7 +174,19 @@
                 "suspended": false,
                 "archived": false,
                 "changePasswordAtNextLogin": false,
-                "ipWhitelisted": false,
+                "ipWhitelisted": false, 
+                "emails": [
+                  {
+                    "address": "craig@salcanpt.com",
+                    "primary": true
+                  },
+                  {
+                    "address": "craig@salcanpt.com.au"
+                  },
+                  {
+                    "address": "craig@salcanpt.com.test-google-a.com"
+                  }
+                ],
                 "phones": [
                   {
                     "value": "+61 447680379",
@@ -191,9 +214,13 @@
               console.log(err);
               return;
             }
-            await listAlias();
+            await listAlias(userList[0]);
           }
         }
+
+
+
+
 
 
 
@@ -239,12 +266,12 @@
 
     let sendAsEmail = null;
     let signature = null;
-    async function listAlias() {
+    async function listAlias({primaryEmail}) {
 
       let response;
       try {
         response = await gapi.client.gmail.users.settings.sendAs.list({
-          'userId': 'craig@salcanpt.com'
+          'userId': primaryEmail
         });
       } catch (err) {
         console.log(err);
