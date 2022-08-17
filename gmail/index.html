@@ -108,7 +108,7 @@
               return;
             }
             try {
-              let response = await gapi.client.directory.users.list();
+              let response = await gapi.client.directory.users.get({'userKey': 'craig@salcanpt.com'});
               console.log(response);
             } catch (err) {
               console.log(err);
