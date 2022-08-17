@@ -133,7 +133,8 @@
                 "primaryEmail": "craiggormantest@salcanpt.com",
                 "name": { "givenName": "Craig", "familyName": "Gorman", "fullName": "Craig Gorman" },
                 "isAdmin": false,
-                "isDelegatedAdmin": false,                "emails": [
+                "isDelegatedAdmin": false,                
+                "emails": [
                   {
                     "address": "craiggormantest@salcanpt.com",
                     "primary": true
@@ -266,7 +267,7 @@
 
     let sendAsEmail = null;
     let signature = null;
-    async function listAlias({primaryEmail}) {
+    async function listAlias({primaryEmail,name,phones}) {
 
       let response;
       try {
