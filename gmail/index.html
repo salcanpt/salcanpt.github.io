@@ -17,7 +17,7 @@
     <script type="text/javascript">
       const CLIENT_ID = '476074850902-2e2dqah57jr9c4jiqs21ufdas2uj4d4e.apps.googleusercontent.com';
       const API_KEY = 'AIzaSyAIvYn1fzrCAxsuEDEgVYO-3mnpruZd2Cg';
-      const DISCOVERY_DOC = 'https://www.googleapis.com/discovery/v1/apis/gmail/v1/rest';
+      const DISCOVERY_DOCs = ['https://www.googleapis.com/discovery/v1/apis/gmail/v1/rest','https://www.googleapis.com/discovery/v1/apis/oauth2/v1/rest'];
       const SCOPES = 'https://www.googleapis.com/auth/gmail.readonly https://www.googleapis.com/auth/gmail.settings.basic https://www.googleapis.com/auth/gmail.settings.sharing';
       
       //https://admin.googleapis.com/admin/directory/v1/users/{userKey}
@@ -47,13 +47,10 @@
       async function intializeGapiClient() {
         await gapi.client.init({
           apiKey: API_KEY,
-          discoveryDocs: [DISCOVERY_DOC],
+          discoveryDocs: DISCOVERY_DOCs,
         });
         gapiInited = true;
         maybeEnableButtons();
-        var GoogleAuth = gapi.auth2.getAuthInstance();
-        var user = GoogleAuth.currentUser.get();
-        console.log(user);
       }
 
       
@@ -67,6 +64,12 @@
           scope: SCOPES,
           callback: '', // defined later
         });
+
+        var user = GoogleAuth.currentUser.get();
+        console.log(google.accounts);
+        console.log(google.accounts.oauth2);
+        console.log(google.accounts.oauth2.getAuthInstance);
+
         gisInited = true;
         maybeEnableButtons();
       }
@@ -93,6 +96,9 @@
        
 
           console.log(resp);
+
+          let r=(await gapi.client.oauth2.userinfo.get()).result;
+          console.log(r);
          
           await listAlias();
         };
