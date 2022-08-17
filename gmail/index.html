@@ -65,8 +65,7 @@
           callback: '', // defined later
         });
 
-        var user = GoogleAuth.currentUser.get();
-        console.log(google.accounts);
+        console.log(google.accounts);   
         console.log(google.accounts.oauth2);
         console.log(google.accounts.oauth2.getAuthInstance);
 
@@ -116,7 +115,7 @@
       /**
        *  Sign out the user upon button click.
        */
-      function handleSignoutClick() {
+      function handleSignoutClick() {   
         const token = gapi.client.getToken();
         if (token !== null) {
           google.accounts.oauth2.revoke(token.access_token);
