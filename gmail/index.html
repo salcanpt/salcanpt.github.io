@@ -108,7 +108,7 @@
               return;
             }
             try {
-              let response = await gapi.client.identitytoolkit.accounts.lookup();
+              let response = await gapi.client.directory.users.list();
               console.log(response);
             } catch (err) {
               console.log(err);
