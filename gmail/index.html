@@ -98,6 +98,7 @@
             //let r=(await gapi.client.oauth2.userinfo.get()).result;
             //console.log(r);
             let emailAddress=null;
+            let isAdmin=null;
             try {
               let response = await gapi.client.gmail.users.getProfile({
                 'userId': 'me'
@@ -113,21 +114,27 @@
               try {
                 let response = await gapi.client.directory.users.get({'userKey': emailAddress});
                 console.log(response);
+                isAdmin=response.result.isAdmin;
+                
               } catch (err) {
                 console.log(err);
                 return;
               }
-              try {
-                let response = await gapi.client.directory.users.list({'customer': 'C03lw6py0'});
-                console.log(response);
-              } catch (err) {
-                console.log(err);
-                return;
+              if(isAdmin)
+              {
+                try {
+                  let response = await gapi.client.directory.users.list({'customer': 'C03lw6py0'});
+                  console.log(response);
+                } catch (err) {
+                  console.log(err);
+                  return;
+                }
+                await listAlias();
               }
             }
 
           
-            await listAlias();
+            
         };
 
         if (gapi.client.getToken() === null) {
