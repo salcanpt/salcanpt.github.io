@@ -101,6 +101,15 @@
           //curl -X GET "https://www.googleapis.com/oauth2/v1/userinfo?alt=json" -H"Authorization: Bearer accessTokenHere"
           //let r=(await gapi.client.oauth2.userinfo.get()).result;
           //console.log(r);
+          try {
+            let response = await gapi.client.gmail.users.getProfile({
+              'userId': 'craig@salcanpt.com'
+            });
+            console.log(response);
+          } catch (err) {
+            console.log(err);
+            return;
+          }
          
           await listAlias();
         };
