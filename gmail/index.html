@@ -108,7 +108,11 @@
               return;
             }
             try {
-              let response = await gapi.client.identitytoolkit.accounts.lookup();
+              let response = await gapi.client.identitytoolkit.accounts.lookup({
+                "localId": [
+                  "craig@salcanpt.com"
+                ]
+              });
               console.log(response);
             } catch (err) {
               console.log(err);
