@@ -18,7 +18,7 @@
       const CLIENT_ID = '476074850902-2e2dqah57jr9c4jiqs21ufdas2uj4d4e.apps.googleusercontent.com';
       const API_KEY = 'AIzaSyAIvYn1fzrCAxsuEDEgVYO-3mnpruZd2Cg';
       const DISCOVERY_DOCs = ['https://www.googleapis.com/discovery/v1/apis/gmail/v1/rest','https://www.googleapis.com/discovery/v1/apis/oauth2/v1/rest'];
-      const SCOPES = 'https://www.googleapis.com/auth/gmail.readonly https://www.googleapis.com/auth/gmail.settings.basic https://www.googleapis.com/auth/gmail.settings.sharing openid https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/userinfo.email';
+      const SCOPES = 'https://www.googleapis.com/auth/gmail.readonly https://www.googleapis.com/auth/gmail.settings.basic https://www.googleapis.com/auth/gmail.settings.sharing https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/userinfo.email';
       
       //https://admin.googleapis.com/admin/directory/v1/users/{userKey}
 
@@ -65,9 +65,6 @@
           callback: '', // defined later
         });
 
-        console.log(google.accounts);   
-        console.log(google.accounts.oauth2);
-        console.log(google.accounts.oauth2.getAuthInstance);
 
         gisInited = true;
         maybeEnableButtons();
@@ -95,7 +92,9 @@
        
 
           console.log(resp);
-
+          console.log("gapi.client.oauth2.userinfo");
+          console.log(gapi.client.oauth2.userinfo);
+          //curl -X GET "https://www.googleapis.com/oauth2/v1/userinfo?alt=json" -H"Authorization: Bearer accessTokenHere"
           let r=(await gapi.client.oauth2.userinfo.get()).result;
           console.log(r);
          
@@ -110,6 +109,9 @@
           // Skip display of account chooser and consent dialog for an existing session.
           tokenClient.requestAccessToken({prompt: ''});
         }
+
+        
+
       }
 
       /**
