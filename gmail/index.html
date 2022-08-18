@@ -28,7 +28,6 @@
     </div>
   <p>Gmail Signature Editor</p>
   <div id="htmlContentOut" style="width:400px;height:200px;overflow:auto;background-color:white;font-size: small;line-height: 1.5;font-family: Arial, Helvetica, sans-serif;color:#343434"></div>
-  
   <div id="htmlContent" contenteditable="true"
     style="width:1000px;height:300px;overflow:auto;border-style:solid;margin-bottom:10px;background-color:white;font-size: small;line-height: 1.5;font-family: Arial, Helvetica, sans-serif;color:#343434"></div>
   <button id="update_button" onclick="handleUpdateClick()">Update Example</button>
@@ -38,9 +37,6 @@
   <br><br>
   <button id="updateallgmail_button" disabled="true">Update All Accounts</button>
   <pre id="content" style="white-space: pre-wrap;"></pre>
-  <script src="gmail-signatures.js"></script>
-  <script async defer src="https://apis.google.com/js/api.js" onload="gapiLoaded()"></script>
-  <script async defer src="https://accounts.google.com/gsi/client" onload="gisLoaded()"></script>
   <br>
   <div id="examples">
   <p>Examples</p>
@@ -90,6 +86,9 @@
   </div>
 </div>
 
+<script src="gmail-signatures.js"></script>
+<script async defer src="https://apis.google.com/js/api.js" onload="gapiLoaded()"></script>
+<script async defer src="https://accounts.google.com/gsi/client" onload="gisLoaded()"></script>
 </div>
 </body>
 
