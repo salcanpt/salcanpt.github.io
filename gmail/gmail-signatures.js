@@ -196,7 +196,10 @@ function handleAuthClick() {
         for(let i=0;i<userList.length;i++)
         {
             try{
+              if(emailAddress==userList[i].primaryEmail)
+              {
                 await listAlias(userList[i]);
+              }
             }
             catch(e)
             {
