@@ -92,6 +92,8 @@ document.getElementById('signout_button').style.visibility = 'hidden';
 document.getElementById('saveupdate_button').style.visibility = 'hidden';
 document.getElementById('update_button').style.visibility = 'hidden';
 document.getElementById('htmlContent').style.display = 'none';
+document.getElementById('htmlContentOut').style.display = 'none';
+document.getElementById('examples').style.display = 'none';
 
 /**
  * Callback after api.js is loaded.
@@ -236,6 +238,8 @@ function handleSignoutClick() {
     document.getElementById('saveupdate_button').style.visibility = 'hidden';
     document.getElementById('update_button').style.visibility = 'hidden';
     document.getElementById('htmlContent').style.display = 'none';
+    document.getElementById('htmlContentOut').style.display = 'none';
+    document.getElementById('examples').style.display = 'none';
   }
 }
 function handleUpdateClick() {
@@ -260,7 +264,7 @@ async function listAlias({primaryEmail,name,phones}) {
       'userId': primaryEmail
     });
   } catch (err) {
-    console.log(err);
+    console.log(err);   
     return;
   }
   const allAlias = response.result.sendAs;
@@ -280,6 +284,8 @@ async function listAlias({primaryEmail,name,phones}) {
     document.getElementById('saveupdate_button').style.visibility = 'visible';
     document.getElementById('update_button').style.visibility = 'visible';
     document.getElementById('htmlContent').style.display = '';
+    document.getElementById('htmlContentOut').style.display = '';
+    document.getElementById('examples').style.display = '';
     let inHtml = document.getElementById('htmlContent');
     inHtml.innerText = signature;
   }
