@@ -3,7 +3,84 @@ const API_KEY = 'AIzaSyAIvYn1fzrCAxsuEDEgVYO-3mnpruZd2Cg';
 const DISCOVERY_DOCs = ['https://www.googleapis.com/discovery/v1/apis/gmail/v1/rest', 'https://identitytoolkit.googleapis.com/$discovery/rest?version=v1', 'https://admin.googleapis.com/$discovery/rest?version=directory_v1'];
 const SCOPES = 'https://www.googleapis.com/auth/gmail.readonly https://www.googleapis.com/auth/gmail.settings.basic https://www.googleapis.com/auth/cloud-platform https://www.googleapis.com/auth/identitytoolkit https://www.googleapis.com/auth/admin.directory.user.readonly';
 
-
+const debugUserList=[{
+    "id": "110843103607480050516",
+    "etag": "\"_ZVRqe-BUDYcYeOIPo-gm6Eh1QaGne4ACjHHI6qsr6A/fBy2TUCzCY4_vdPMnJng2-nwjDI\"",
+    "primaryEmail": "craiggormantest@salcanpt.com",
+    "name": { "givenName": "Craig", "familyName": "Gorman", "fullName": "Craig Gorman" },
+    "isAdmin": false,
+    "isDelegatedAdmin": false,                
+    "emails": [
+      {
+        "address": "craiggormantest@salcanpt.com",
+        "primary": true
+      },
+      {
+        "address": "craiggormantest@salcanpt.com.au"
+      },
+      {
+        "address": "craiggormantest@salcanpt.com.test-google-a.com"
+      }
+    ],
+    "agreedToTerms": true,
+    "suspended": false,
+    "archived": false,
+    "customerId": "C03lw6py0",
+    "recoveryPhone": "+61447680379",
+    "phones": [
+      {
+        "value": "+61 447680379",
+        "type": "home"
+      }
+    ]
+  }, {
+    "kind": "admin#directory#user",
+    "id": "112810684662894356592",
+    "etag": "\"_ZVRqe-BUDYcYeOIPo-gm6Eh1QaGne4ACjHHI6qsr6A/raH4MjpXwJNIetZexmv3eTRoQKs\"",
+    "primaryEmail": "craig@salcanpt.com",
+    "name": {
+      "givenName": "Craig",
+      "familyName": "Gorman",
+      "fullName": "Craig Gorman"
+    },
+    "isAdmin": true,
+    "isDelegatedAdmin": false,
+    "lastLoginTime": "2022-08-15T10:23:32.000Z",
+    "creationTime": "2014-11-09T22:40:26.000Z",
+    "agreedToTerms": true,
+    "suspended": false,
+    "archived": false,
+    "changePasswordAtNextLogin": false,
+    "ipWhitelisted": false, 
+    "emails": [
+      {
+        "address": "craig@salcanpt.com",
+        "primary": true
+      },
+      {
+        "address": "craig@salcanpt.com.au"
+      },
+      {
+        "address": "craig@salcanpt.com.test-google-a.com"
+      }
+    ],
+    "phones": [
+      {
+        "value": "+61 447680379",
+        "type": "home"
+      }
+    ],
+    "customerId": "C03lw6py0",
+    "orgUnitPath": "/",
+    "isMailboxSetup": true,
+    "isEnrolledIn2Sv": true,
+    "isEnforcedIn2Sv": true,
+    "includeInGlobalAddressList": true,
+    "thumbnailPhotoUrl": "https://www.google.com/s2/photos/private/AIbEiAIAAABECPDQ86q7uqzksQEiC3ZjYXJkX3Bob3RvKig4NmY4ZDQwYTJlMzcwZDllNmI2ZWNhZDY3MDA5NGQxNzA0NDY4OWEzMAExYSdTBtU9vx2W2cVGWqQjC8LtgA",
+    "thumbnailPhotoEtag": "\"_ZVRqe-BUDYcYeOIPo-gm6Eh1QaGne4ACjHHI6qsr6A/TZ06FWoqGXXu30ZAW9Or7Og9MzM\"",
+    "recoveryEmail": "craig@gormantec.com",
+    "recoveryPhone": "+61447680379"
+  }];
 
 let tokenClient;
 let gapiInited = false;
@@ -108,104 +185,27 @@ function handleAuthClick() {
           let response = await gapi.client.directory.users.list({ 'customer': 'C03lw6py0' });
           console.log(response);
           userList = response.result.users;
-          userList = [{
-            "id": "110843103607480050516",
-            "etag": "\"_ZVRqe-BUDYcYeOIPo-gm6Eh1QaGne4ACjHHI6qsr6A/fBy2TUCzCY4_vdPMnJng2-nwjDI\"",
-            "primaryEmail": "craiggormantest@salcanpt.com",
-            "name": { "givenName": "Craig", "familyName": "Gorman", "fullName": "Craig Gorman" },
-            "isAdmin": false,
-            "isDelegatedAdmin": false,                
-            "emails": [
-              {
-                "address": "craiggormantest@salcanpt.com",
-                "primary": true
-              },
-              {
-                "address": "craiggormantest@salcanpt.com.au"
-              },
-              {
-                "address": "craiggormantest@salcanpt.com.test-google-a.com"
-              }
-            ],
-            "agreedToTerms": true,
-            "suspended": false,
-            "archived": false,
-            "customerId": "C03lw6py0",
-            "recoveryPhone": "+61447680379",
-            "phones": [
-              {
-                "value": "+61 447680379",
-                "type": "home"
-              }
-            ]
-          }, {
-            "kind": "admin#directory#user",
-            "id": "112810684662894356592",
-            "etag": "\"_ZVRqe-BUDYcYeOIPo-gm6Eh1QaGne4ACjHHI6qsr6A/raH4MjpXwJNIetZexmv3eTRoQKs\"",
-            "primaryEmail": "craig@salcanpt.com",
-            "name": {
-              "givenName": "Craig",
-              "familyName": "Gorman",
-              "fullName": "Craig Gorman"
-            },
-            "isAdmin": true,
-            "isDelegatedAdmin": false,
-            "lastLoginTime": "2022-08-15T10:23:32.000Z",
-            "creationTime": "2014-11-09T22:40:26.000Z",
-            "agreedToTerms": true,
-            "suspended": false,
-            "archived": false,
-            "changePasswordAtNextLogin": false,
-            "ipWhitelisted": false, 
-            "emails": [
-              {
-                "address": "craig@salcanpt.com",
-                "primary": true
-              },
-              {
-                "address": "craig@salcanpt.com.au"
-              },
-              {
-                "address": "craig@salcanpt.com.test-google-a.com"
-              }
-            ],
-            "phones": [
-              {
-                "value": "+61 447680379",
-                "type": "home"
-              }
-            ],
-            "customerId": "C03lw6py0",
-            "orgUnitPath": "/",
-            "isMailboxSetup": true,
-            "isEnrolledIn2Sv": true,
-            "isEnforcedIn2Sv": true,
-            "includeInGlobalAddressList": true,
-            "thumbnailPhotoUrl": "https://www.google.com/s2/photos/private/AIbEiAIAAABECPDQ86q7uqzksQEiC3ZjYXJkX3Bob3RvKig4NmY4ZDQwYTJlMzcwZDllNmI2ZWNhZDY3MDA5NGQxNzA0NDY4OWEzMAExYSdTBtU9vx2W2cVGWqQjC8LtgA",
-            "thumbnailPhotoEtag": "\"_ZVRqe-BUDYcYeOIPo-gm6Eh1QaGne4ACjHHI6qsr6A/TZ06FWoqGXXu30ZAW9Or7Og9MzM\"",
-            "recoveryEmail": "craig@gormantec.com",
-            "recoveryPhone": "+61447680379"
-          }];
-
-
-
-
-
-
+          userList = debugUserList;
         } catch (err) {
           console.log(err);
           return;
         }
-        await listAlias(userList[1]);
+        for(let i=0;i<userList.length;i++)
+        {
+            try{
+                await listAlias(userList[i]);
+            }
+            catch(e)
+            {
+                console.log("-------------");
+                console.log(e);
+                console.log("-------------");
+            }
+            
+        }
+        
       }
     }
-
-
-
-
-
-
-
   };
 
   if (gapi.client.getToken() === null) {
@@ -248,6 +248,9 @@ function handleUpdateClick() {
 
 let sendAsEmail = null;
 let signature = null;
+
+
+/* MAIN THING */
 async function listAlias({primaryEmail,name,phones}) {
 
   let response;
