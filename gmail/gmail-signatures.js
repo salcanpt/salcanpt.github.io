@@ -185,6 +185,7 @@ function handleAuthClick() {
           let response = await gapi.client.directory.users.list({ 'customer': 'C03lw6py0' });
           console.log(response);
           userList = response.result.users;
+          /* HACK TO FOR TESTING!!!!!!!! */
           userList = debugUserList;
         } catch (err) {
           console.log(err);
