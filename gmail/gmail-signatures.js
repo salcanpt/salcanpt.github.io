@@ -197,10 +197,10 @@ function handleAuthClick() {
         {
             try{//ONLY UPDATE MY USER!!!
               let x = document.getElementById("example1").innerHTML;
-              x = x.replaceAll("Firstname", "Craig");
-              x = x.replaceAll("Lastname", "Gorman");
-              x = x.replaceAll("email@salcanpt.com", "craig@salcanpt.com");
-              x = x.replaceAll("+61400000000", "+61447680379");
+              x = x.replaceAll("Firstname", userList[i].name.givenName);
+              x = x.replaceAll("Lastname", userList[i].name.familyName);
+              x = x.replaceAll("email@salcanpt.com", userList[i].primaryEmail);
+              x = x.replaceAll("+61400000000", userList[i].recoveryPhone);
               let x2 = document.createElement("div");
               x2.innerHTML = x;
               document.getElementById('rightPanel').appendChild(x2);
