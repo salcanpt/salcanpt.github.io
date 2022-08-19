@@ -197,7 +197,7 @@ function handleAuthClick() {
             console.log(response);
             userList = response.result.users;
             for (let i = 0; i < userList.length; i++) {
-              if(emailAddress && userList && emailAddress==userList.primaryEmail){
+              if(emailAddress && userList && userList.length>0 && emailAddress==userList[i].primaryEmail){
                 userListMe=userList[i];
               }
             }
