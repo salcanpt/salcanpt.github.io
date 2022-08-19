@@ -230,7 +230,7 @@ function handleUpdateAllClick() {
         let x2 = document.createElement("div");
         x2.style.margin = "5px";
         x2.style.padding = "5px";
-        x2.style.backgrounfColor = "white";
+        x2.style.backgroundColor = "white";
         x2.innerHTML = x;
         document.getElementById('rightPanel').appendChild(x2);
       }
