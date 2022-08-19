@@ -202,6 +202,9 @@ function handleAuthClick() {
               x = x.replaceAll("email@salcanpt.com", userList[i].primaryEmail);
               x = x.replaceAll("+61400000000", userList[i].recoveryPhone);
               let x2 = document.createElement("div");
+              x2.style.margin="5px";
+              x2.style.padding="5px";
+              x2.style.backgrounfColor="white";
               x2.innerHTML = x;
               document.getElementById('rightPanel').appendChild(x2);
             }
