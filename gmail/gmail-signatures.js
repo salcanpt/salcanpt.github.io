@@ -187,6 +187,8 @@ function handleAuthClick() {
       }
       getMySignature({ primaryEmail: emailAddress });
       if (isAdmin) {
+        
+        document.getElementById("updateallgmail_button").removeAttribute("disabled");
         setTimeout(async () => {  
 
           try {

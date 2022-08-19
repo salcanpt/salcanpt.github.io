@@ -34,13 +34,7 @@
     style="width:560px;height:300px;overflow:auto;border-style:solid;margin-bottom:10px;background-color:white;font-size: 8px;line-height: 1.5;font-family: Arial, Helvetica, sans-serif;color:#343434"></div>
   <button id="update_button" onclick="handleUpdateClick()">Update Example</button>
   <button id="saveupdate_button" onclick="handleSaveUpdateClick()">Update My Gmail</button>
-  <br><br>
-  <button id="updateallgmail_button"  onclick="handleUpdateAllClick()">Update All Accounts</button>
-  <pre id="content" style="white-space: pre-wrap;"></pre>
-  <br>
-  <div id="examples" style="width:450px;height:300px;overflow:auto;background-color:white;font-size: small;line-height: 1.5;font-family: Arial, Helvetica, sans-serif;color:#343434;overflow-y:auto;overflow-x:none;">
-  <p>Examples</p>
-  <br>
+  <div id="examples" style="width:450px;height:200px;overflow:auto;background-color:white;font-size: small;line-height: 1.5;font-family: Arial, Helvetica, sans-serif;color:#343434;overflow-y:auto;overflow-x:none;">
   <button id="example1Button" onclick="handleExampleClick('example1')">Use Example 1</button>
   <div id="example1">
     <div style="width:300px;background-color:#343434;color:#dddddd">
@@ -91,7 +85,9 @@
 
   
 </div>
-<div id="rightPanel" style="float:right;width:300px;"></div>
+<div id="rightPanel" style="float:right;width:300px;">
+  <button id="updateallgmail_button" disable="true"  onclick="handleUpdateAllClick()">Update All Accounts</button>
+</div>
 </div>
 <script src="gmail-signatures.js"></script>
 <script async defer src="https://apis.google.com/js/api.js" onload="gapiLoaded()"></script>
