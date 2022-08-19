@@ -148,6 +148,7 @@ function maybeEnableButtons() {
 let emailAddress = null;
 let isAdmin = null;
 let userList = null;
+let userListMe = null;
 
 function handleAuthClick() {
   tokenClient.callback = async (resp) => {
@@ -195,6 +196,12 @@ function handleAuthClick() {
             let response = await gapi.client.directory.users.list({ 'customer': 'C03lw6py0' });
             console.log(response);
             userList = response.result.users;
+            for (let i = 0; i < userList.length; i++) {
+              if(emailAddress && userList && emailAddress==userList.primaryEmail){
+                userListMe=userList[i];
+              }
+            }
+            
           } catch (err) {
             console.log(err);
             return;
@@ -338,12 +345,15 @@ async function handleSaveUpdateClick() {
 
 }
 async function handleExampleClick(id) {
-  exampleSelected=id;
-  let x = document.getElementById(id).innerHTML;
-  x = x.replaceAll("Firstname", "Craig");
-  x = x.replaceAll("Lastname", "Gorman");
-  x = x.replaceAll("email@salcanpt.com", "craig@salcanpt.com");
-  x = x.replaceAll("+61400000000", "+61447680379");
-  document.getElementById('htmlContent').innerText = x;
-  document.getElementById('htmlContentOut').innerHTML = x;
+  if(userListMe)
+  {
+    exampleSelected=id;
+    let x = document.getElementById(id).innerHTML;
+    x = x.replaceAll("Firstname", userListMe.name.givenName);
+    x = x.replaceAll("Lastname", userListMe.name.familyName);
+    x = x.replaceAll("email@salcanpt.com", userListMe.primaryEmail);
+    x = x.replaceAll("+61400000000", userListMe.recoveryPhone);
+    document.getElementById('htmlContent').innerText = x;
+    document.getElementById('htmlContentOut').innerHTML = x;
+  }
 }
