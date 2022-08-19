@@ -232,9 +232,9 @@ function handleUpdateAllClick() {
         x = x.replaceAll("+61400000000", userList[i].recoveryPhone);
         let x2 = document.createElement("div");
         x2.style.margin = "2px";
-        x2.style.padding = "3px";
+        x2.style.padding = "2px";
         x2.style.backgroundColor = "white";
-        x2.style.width = "310px";
+        x2.style.width = "302px";
         x2.innerHTML = x;
         document.getElementById('rightPanelContent').appendChild(x2);
       }
