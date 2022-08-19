@@ -221,7 +221,7 @@ function handleAuthClick() {
 
 function handleUpdateAllClick() {
   if (isAdmin) {
-    document.getElementById('rightPanel').innerText = '';
+    document.getElementById('rightPanelContent').innerText = '';
     for (let i = 0; i < userList.length; i++) {
       try {
         let x = document.getElementById("example1").innerHTML;
@@ -235,7 +235,7 @@ function handleUpdateAllClick() {
         x2.style.backgroundColor = "white";
         x2.style.width = "310px";
         x2.innerHTML = x;
-        document.getElementById('rightPanel').appendChild(x2);
+        document.getElementById('rightPanelContent').appendChild(x2);
       }
       catch (e) {
         console.log("-------------");
