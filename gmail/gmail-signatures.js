@@ -207,6 +207,7 @@ function handleAuthClick() {
                 console.log(e);
                 console.log("-------------");
             }
+            document.getElementById('rightPanel').innerText = '';
             
         }
         
