@@ -182,24 +182,28 @@ function handleAuthClick() {
         console.log(err);
         return;
       }
+      getMySignature({primaryEmail:emailAddress});
       if (isAdmin) {
         try {
           let response = await gapi.client.directory.users.list({ 'customer': 'C03lw6py0' });
           console.log(response);
           userList = response.result.users;
-          /* HACK TO FOR TESTING!!!!!!!! */
-          userList = debugUserList;
         } catch (err) {
           console.log(err);
           return;
         }
+        document.getElementById('rightPanel').innerText = '';
         for(let i=0;i<userList.length;i++)
         {
-            try{
-              if(emailAddress==userList[i].primaryEmail)
-              {
-                await listAlias(userList[i]);
-              }
+            try{//ONLY UPDATE MY USER!!!
+              let x = document.getElementById("example1").innerHTML;
+              x = x.replaceAll("Firstname", "Craig");
+              x = x.replaceAll("Lastname", "Gorman");
+              x = x.replaceAll("email@salcanpt.com", "craig@salcanpt.com");
+              x = x.replaceAll("+61400000000", "+61447680379");
+              let x2 = document.createElement("div");
+              x2.innerHTML = x;
+              document.getElementById('rightPanel').appendChild(x2);
             }
             catch(e)
             {
@@ -207,8 +211,6 @@ function handleAuthClick() {
                 console.log(e);
                 console.log("-------------");
             }
-            document.getElementById('rightPanel').innerText = '';
-            
         }
         
       }
@@ -260,7 +262,7 @@ let signature = null;
 
 
 /* MAIN THING */
-async function listAlias({primaryEmail,name,phones}) {
+async function getMySignature({primaryEmail,name,phones}) {
 
   let response;
   try {
