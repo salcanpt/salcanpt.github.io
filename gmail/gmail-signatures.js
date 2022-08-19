@@ -221,10 +221,11 @@ function handleAuthClick() {
 
 function handleUpdateAllClick() {
   if (isAdmin) {
+    if(!exampleSelected)exampleSelected="example1";
     document.getElementById('rightPanelContent').innerText = '';
     for (let i = 0; i < userList.length; i++) {
       try {
-        let x = document.getElementById("example1").innerHTML;
+        let x = document.getElementById(exampleSelected).innerHTML;
         x = x.replaceAll("Firstname", userList[i].name.givenName);
         x = x.replaceAll("Lastname", userList[i].name.familyName);
         x = x.replaceAll("email@salcanpt.com", userList[i].primaryEmail);
@@ -275,6 +276,7 @@ function handleUpdateClick() {
 
 let sendAsEmail = null;
 let signature = null;
+let exampleSelected=null;
 
 
 /* MAIN THING */
@@ -336,6 +338,7 @@ async function handleSaveUpdateClick() {
 
 }
 async function handleExampleClick(id) {
+  exampleSelected=id;
   let x = document.getElementById(id).innerHTML;
   x = x.replaceAll("Firstname", "Craig");
   x = x.replaceAll("Lastname", "Gorman");
