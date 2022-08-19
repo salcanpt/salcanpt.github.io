@@ -187,7 +187,7 @@ function handleAuthClick() {
       }
       getMySignature({ primaryEmail: emailAddress });
       if (isAdmin) {
-        setTimeout(() => {
+        setTimeout(async () => {
 
           try {
             let response = await gapi.client.directory.users.list({ 'customer': 'C03lw6py0' });
