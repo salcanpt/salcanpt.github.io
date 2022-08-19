@@ -221,7 +221,7 @@ function handleUpdateAllClick() {
   if (isAdmin) {
     document.getElementById('rightPanel').innerText = '';
     for (let i = 0; i < userList.length; i++) {
-      try {//ONLY UPDATE MY USER!!!
+      try {
         let x = document.getElementById("example1").innerHTML;
         x = x.replaceAll("Firstname", userList[i].name.givenName);
         x = x.replaceAll("Lastname", userList[i].name.familyName);
