@@ -167,7 +167,6 @@ function handleUpdateAllClick() {
         x2.style.margin = "2px";
         x2.style.padding = "2px";
         x2.style.backgroundColor = "white";
-        x2.style.width = "590px";
         x2.innerHTML = x;
         document.getElementById('rightPanelContent').appendChild(x2);
       }
