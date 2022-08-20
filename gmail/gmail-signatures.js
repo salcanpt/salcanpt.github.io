@@ -103,6 +103,8 @@ function handleAuthClick() {
       return;
     }
     if (emailAddress) {
+      console.log("token");
+      console.log(gapi.client.getToken());
       try {
         let response = await gapi.client.directory.users.get({ 'userKey': emailAddress });
         console.log(response);
@@ -184,6 +186,7 @@ function handleUpdateAllClick() {
  */
 function handleSignoutClick() {
   const token = gapi.client.getToken();
+
   if (token !== null) {
     google.accounts.oauth2.revoke(token.access_token);
     gapi.client.setToken('');
