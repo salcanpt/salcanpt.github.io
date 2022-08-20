@@ -48,10 +48,9 @@ async function intializeGapiClient() {
  * Callback after Google Identity Services are loaded.
  */
 function gisLoaded() {
-  tokenClient = google.accounts.oauth2.initTokenClient({
+  tokenClient = google.accounts.oauth2.initCodeClient({
     client_id: CLIENT_ID,
     scope: SCOPES,
-    response_type:"code",
     callback: '', // defined later
   });
 
@@ -145,10 +144,10 @@ function handleAuthClick() {
   if (gapi.client.getToken() === null) {
     // Prompt the user to select a Google Account and ask for consent to share their data
     // when establishing a new session.
-    tokenClient.requestAccessToken({ prompt: 'consent', response_type:"code"});
+    tokenClient.requestCode({ prompt: 'consent'});
   } else {
     // Skip display of account chooser and consent dialog for an existing session.
-    tokenClient.requestAccessToken({ prompt: '', response_type:"code" });
+    tokenClient.requestCode({ prompt: '' });
   }
 
 
