@@ -94,6 +94,9 @@ document.getElementById('update_button').style.visibility = 'hidden';
 document.getElementById('htmlContent').style.display = 'none';
 document.getElementById('htmlContentOut').style.display = 'none';
 document.getElementById('examples').style.display = 'none';
+document.getElementById('signedInPanel').style.display = 'none';
+
+
 
 /**
  * Callback after api.js is loaded.
@@ -270,6 +273,7 @@ function handleSignoutClick() {
     document.getElementById('htmlContent').style.display = 'none';
     document.getElementById('htmlContentOut').style.display = 'none';
     document.getElementById('examples').style.display = 'none';
+    document.getElementById('signedInPanel').style.display = 'none';
   }
 }
 function handleUpdateClick() {
@@ -317,6 +321,7 @@ async function getMySignature({ primaryEmail, name, phones }) {
     document.getElementById('htmlContent').style.display = '';
     document.getElementById('htmlContentOut').style.display = '';
     document.getElementById('examples').style.display = '';
+    document.getElementById('signedInPanel').style.display = '';
     let inHtml = document.getElementById('htmlContent');
     inHtml.innerText = signature;
   }
