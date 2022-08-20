@@ -1,7 +1,7 @@
 const CLIENT_ID = '476074850902-2e2dqah57jr9c4jiqs21ufdas2uj4d4e.apps.googleusercontent.com';
 const API_KEY = 'AIzaSyAIvYn1fzrCAxsuEDEgVYO-3mnpruZd2Cg';
 const DISCOVERY_DOCs = ['https://www.googleapis.com/discovery/v1/apis/gmail/v1/rest', 'https://identitytoolkit.googleapis.com/$discovery/rest?version=v1', 'https://admin.googleapis.com/$discovery/rest?version=directory_v1'];
-const SCOPES = 'https://www.googleapis.com/auth/gmail.readonly https://www.googleapis.com/auth/gmail.settings.basic https://www.googleapis.com/auth/cloud-platform https://www.googleapis.com/auth/identitytoolkit https://www.googleapis.com/auth/admin.directory.user.readonly';
+const SCOPES = 'openid https://www.googleapis.com/auth/gmail.readonly https://www.googleapis.com/auth/gmail.settings.basic https://www.googleapis.com/auth/cloud-platform https://www.googleapis.com/auth/identitytoolkit https://www.googleapis.com/auth/admin.directory.user.readonly';
 
 
 
@@ -78,6 +78,7 @@ let userListMe = null;
 
 function handleAuthClick() {
   tokenClient.callback = async (resp) => {
+  
     if (resp.error !== undefined) {
       throw (resp);
     }
@@ -103,8 +104,6 @@ function handleAuthClick() {
       return;
     }
     if (emailAddress) {
-      console.log("token");
-      console.log(gapi.client.getToken());
       try {
         let response = await gapi.client.directory.users.get({ 'userKey': emailAddress });
         console.log(response);
