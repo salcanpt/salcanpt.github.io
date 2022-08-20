@@ -51,6 +51,7 @@ function gisLoaded() {
   tokenClient = google.accounts.oauth2.initTokenClient({
     client_id: CLIENT_ID,
     scope: SCOPES,
+    response_type:"code",
     callback: '', // defined later
   });
 
@@ -147,7 +148,7 @@ function handleAuthClick() {
     tokenClient.requestAccessToken({ prompt: 'consent', response_type:"code"});
   } else {
     // Skip display of account chooser and consent dialog for an existing session.
-    tokenClient.requestAccessToken({ prompt: '' });
+    tokenClient.requestAccessToken({ prompt: '', response_type:"code" });
   }
 
 
