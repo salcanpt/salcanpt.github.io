@@ -388,6 +388,7 @@ async function handleExampleClick(id) {
 
 async function handleSaveTemplateClick()
 {
+
   var count=parseInt(localStorage.getItem("templateCount") || "0" );
   localStorage.setItem(count,""+(count+1));
   localStorage.setItem("template-"+(count+4),btoa(document.getElementById('htmlContent').innerText));
@@ -396,10 +397,12 @@ async function handleSaveTemplateClick()
 async function loadCachedTemplates()
 {
   var count=parseInt(localStorage.getItem("templateCount") || "0" );
+  console.log("count="+count);
   if(count>0)
   {
     for(let i=0;i<count;i++)
     {
+      console.log("add=template-"+(i+4));
       let b64html=localStorage.getItem("template-"+(i+4));
       let b1=document.createElement("button");
       let b2=document.createElement("button");
