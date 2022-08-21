@@ -251,21 +251,26 @@ async function handleSaveUpdateClick() {
   console.log("signature:" + sendAsEmail);
   if (sendAsEmail) {
     if (accessToken) {
-      const response = await fetch('https://3ufadbfj3b.execute-api.ap-southeast-2.amazonaws.com/default/gmail_signature', {
-        method: 'POST',
-        body: {
-          'accessToken': accessToken,
-          'userId': emailAddress,
-          'sendAsEmail': sendAsEmail,
-          "signature": document.getElementById('htmlContent').innerText
-        }, // string or object
-        headers: {
-          'Content-Type': 'application/json',
-          "x-api-key":"yVxNbw7K3y4IS94BDKtMh9hAUiL0Y5oP6NdQEBs2"
-        }
-      });
-      const myJson = await response.json();
-      console.log(myJson);
+      try {
+        const response = await fetch('https://3ufadbfj3b.execute-api.ap-southeast-2.amazonaws.com/default/gmail_signature', {
+          method: 'POST',
+          body: {
+            'accessToken': accessToken,
+            'userId': emailAddress,
+            'sendAsEmail': sendAsEmail,
+            "signature": document.getElementById('htmlContent').innerText
+          }, // string or object
+          headers: {
+            'Content-Type': 'application/json',
+            "x-api-key": "yVxNbw7K3y4IS94BDKtMh9hAUiL0Y5oP6NdQEBs2"
+          }
+        });
+        const myJson = await response.json();
+        console.log(myJson);
+      }
+      catch (e) {
+        console.log(e);
+      }
     }
   }
 }
