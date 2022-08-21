@@ -388,5 +388,28 @@ async function handleExampleClick(id) {
 
 async function handleSaveTemplateClick()
 {
+  var count=parseInt(localStorage.getItem("templateCount") || 0 );
+  localStorage.setItem(templateCount,""+(count+1));
+  localStorage.setItem(template+"-"+(count+4),btoa(document.getElementById('htmlContent').innerText));
+}
 
+async function loadCashedTemplates()
+{
+  var count=parseInt(localStorage.getItem("templateCount") || 0 );
+  if(count>0)
+  {
+    for(let i=0;i<count;i++)
+    {
+      let b64html=localStorage.getItem(template+"-"+(i+4));
+      let b1=document.createElement("button");
+      b1.id="example"+(i+4)+"Button";
+      b1.onclick=handleExampleClick('example'+(i+4));
+      b1.innerText="Use Example "+(i+4);
+      let d1=document.createElement("div");
+      d1.id="example"+(i+4);
+      d1.innerHTML=atob(b64html);
+      document.getElementById('examples').appendChild(b1);
+      document.getElementById('examples').appendChild(d1);      
+    }
+  }
 }
