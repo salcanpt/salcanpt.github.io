@@ -409,12 +409,11 @@ async function handleSaveTemplateClick()
   b2.id="example"+(count+4)+"DeleteButton";
   let d1=document.createElement("div");
   d1.id="example"+(count+4);
+  d1.style.marginBottom="20px";
   d1.innerHTML=document.getElementById('htmlContent').innerText;
   document.getElementById('examples').appendChild(b1);
   document.getElementById('examples').appendChild(b2);
   document.getElementById('examples').appendChild(d1);  
-  document.getElementById('examples').appendChild(document.createElement("br"));   
-  document.getElementById('examples').appendChild(document.createElement("br")); 
 }
 
 async function loadCachedTemplates()
@@ -447,11 +446,10 @@ async function loadCachedTemplates()
         let d1=document.createElement("div");
         d1.id="example"+(i+4);
         d1.innerHTML=atob(b64html);
+        d1.style.marginBottom="20px";
         document.getElementById('examples').appendChild(b1);
         document.getElementById('examples').appendChild(b2);
         document.getElementById('examples').appendChild(d1);  
-        document.getElementById('examples').appendChild(document.createElement("br"));   
-        document.getElementById('examples').appendChild(document.createElement("br")); 
       }
      
     }
