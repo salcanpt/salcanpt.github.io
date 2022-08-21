@@ -409,7 +409,9 @@ async function loadCachedTemplates()
       d1.id="example"+(i+4);
       d1.innerHTML=atob(b64html);
       document.getElementById('examples').appendChild(b1);
-      document.getElementById('examples').appendChild(d1);      
+      document.getElementById('examples').appendChild(d1);  
+      document.getElementById('examples').appendChild(document.createElement("br"));   
+      document.getElementById('examples').appendChild(document.createElement("br"));      
     }
   }
 }
