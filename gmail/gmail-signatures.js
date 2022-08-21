@@ -76,17 +76,17 @@ let emailAddress = null;
 let isAdmin = null;
 let userList = null;
 let userListMe = null;
-let accessToken=null;
+let accessToken = null;
 
 function handleAuthClick() {
   tokenClient.callback = async (resp) => {
-  
+
     if (resp.error !== undefined) {
       throw (resp);
     }
     document.getElementById('signout_button').style.visibility = 'visible';
     document.getElementById('authorize_button').innerText = 'Refresh';
-    accessToken=resp.access_token;
+    accessToken = resp.access_token;
     try {
       let response = await gapi.client.gmail.users.getProfile({
         'userId': 'me'
@@ -109,20 +109,20 @@ function handleAuthClick() {
       }
       getMySignature({ primaryEmail: emailAddress });
       if (isAdmin) {
-        
+
         document.getElementById("updateallgmail_button").removeAttribute("disabled");
-        setTimeout(async () => {  
+        setTimeout(async () => {
 
           try {
             let response = await gapi.client.directory.users.list({ 'customer': 'C03lw6py0' });
             console.log(response);
             userList = response.result.users;
             for (let i = 0; i < userList.length; i++) {
-              if(emailAddress && userList && userList.length>0 && emailAddress==userList[i].primaryEmail){
-                userListMe=userList[i];
+              if (emailAddress && userList && userList.length > 0 && emailAddress == userList[i].primaryEmail) {
+                userListMe = userList[i];
               }
             }
-            
+
           } catch (err) {
             console.log(err);
             return;
@@ -149,7 +149,7 @@ function handleAuthClick() {
 
 function handleUpdateAllClick() {
   if (isAdmin) {
-    if(!exampleSelected)exampleSelected="example1";
+    if (!exampleSelected) exampleSelected = "example1";
     document.getElementById('rightPanelContent').innerText = '';
     for (let i = 0; i < userList.length; i++) {
       try {
@@ -205,7 +205,7 @@ function handleUpdateClick() {
 
 let sendAsEmail = null;
 let signature = null;
-let exampleSelected=null;
+let exampleSelected = null;
 
 
 /* MAIN THING */
@@ -250,29 +250,11 @@ async function handleSaveUpdateClick() {
 
   console.log("signature:" + sendAsEmail);
   if (sendAsEmail) {
-    console.log("signature!!!!");
-    /*
-    try {
-      response = await gapi.client.gmail.users.settings.sendAs.patch({
-        'userId': emailAddress,
-        'sendAsEmail': sendAsEmail,
-        "signature": document.getElementById('htmlContent').innerText
-      });
-      console.log(response);
-    } catch (err) {
-
-      console.log(err);
-      document.getElementById('content').innerText = err.message;
-      return;
-    }
-    */
-
- if(accessToken)
- {
-      const response = await fetch('https://3ufadbfj3b.execute-api.ap-southeast-2.amazonaws.com/default/gmail_signature', {
+    if (accessToken) {
+      const response = await fetch('https://3ufadbfj3b.execute-api.ap-southeast-2.amazonaws.com/default/gmail_signature?apiKey=yVxNbw7K3y4IS94BDKtMh9hAUiL0Y5oP6NdQEBs2', {
         method: 'POST',
         body: {
-          'accessToken':accessToken,
+          'accessToken': accessToken,
           'userId': emailAddress,
           'sendAsEmail': sendAsEmail,
           "signature": document.getElementById('htmlContent').innerText
@@ -281,18 +263,14 @@ async function handleSaveUpdateClick() {
           'Content-Type': 'application/json'
         }
       });
-      const myJson = await response.json(); 
+      const myJson = await response.json();
       console.log(myJson);
     }
-
-
   }
-
 }
 async function handleExampleClick(id) {
-  if(userListMe)
-  {
-    exampleSelected=id;
+  if (userListMe) {
+    exampleSelected = id;
     let x = document.getElementById(id).innerHTML;
     x = x.replaceAll("Firstname", userListMe.name.givenName);
     x = x.replaceAll("Lastname", userListMe.name.familyName);
