@@ -339,8 +339,8 @@ function convertFromTemplate(signature, userListItem)
   signature = signature.replaceAll("Lastname", userListItem.name.familyName);
   signature = signature.replaceAll("email@salcanpt.com", userListItem.primaryEmail);
   signature = signature.replaceAll("+61400000000", phone);
-  if(userListItem.location && userListItem.location.length>0 && userListItem.location[0] && userListItem.location[0].floorSection){
-    signature = signature.replaceAll("Floor Section",userListItem.location[0].floorSection);
+  if(userListItem.locations && userListItem.locations.length>0 && userListItem.locations[0] && userListItem.locations[0].floorSection){
+    signature = signature.replaceAll("Floor Section",userListItem.locations[0].floorSection);
   }
   else{
     signature = signature.replaceAll("Floor Section","");
@@ -374,7 +374,7 @@ function convertToTemplate(signature, userListItem)
   signature = signature.replaceAll(userListItem.primaryEmail,"email@salcanpt.com",);
   signature = signature.replaceAll(phone,"+61400000000");
   console.log(userListItem);
-  if(userListItem.location && userListItem.location.length>0 && userListItem.location[0] && userListItem.location[0].floorSection)signature = signature.replaceAll(userListItem.location[0].floorSection,"Floor Section");
+  if(userListItem.locations && userListItem.locations.length>0 && userListItem.locations[0] && userListItem.location[0]s.floorSection)signature = signature.replaceAll(userListItem.locations[0].floorSection,"Floor Section");
   if(userListItem.organizations && userListItem.organizations.length>0 && userListItem.organizations[0] && userListItem.organizations[0].title)signature = signature.replaceAll(userListItem.organizations[0].title,"Job Title");
   return signature;
 }
