@@ -255,9 +255,8 @@ function handleSignoutClick() {
   }
 }
 function handleUpdateClick() {
-  document.getElementById('htmlContent').innerText;
   let s = document.createElement("div");
-  s.innerHTML = document.getElementById('htmlContent').innerText;
+  s.innerHTML = convertFromTemplate(document.getElementById('htmlContent').innerText,userListMe);
   let out = document.getElementById('htmlContentOut');
   out.innerText = "";
   out.appendChild(s);
