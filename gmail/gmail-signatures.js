@@ -402,8 +402,9 @@ async function handleSaveTemplateClick()
     document.getElementById("example"+dItem).remove();
   };
   b1.id="example"+(count+4)+"Button";
-  b1.onclick=handleExampleClick('example'+(i+4));
-  b1.innerText="Use Example "+(i+4);
+  let eName='example'+(count+4);
+  b1.onclick=handleExampleClick(eName);
+  b1.innerText="Use Example "+(count+4);
   b2.innerText="Delete";
   b2.id="example"+(count+4)+"DeleteButton";
   let d1=document.createElement("div");
