@@ -379,9 +379,8 @@ async function handleExampleClick(id) {
   if (userListMe) {
     exampleSelected = id;
     let x = document.getElementById(exampleSelected).innerHTML;
-    x = convertFromTemplate(x,userListMe);
     document.getElementById('htmlContent').innerText = x;
-    document.getElementById('htmlContentOut').innerHTML = x;
+    document.getElementById('htmlContentOut').innerHTML = convertFromTemplate(x,userListMe);
   }
 }
 
