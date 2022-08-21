@@ -339,6 +339,8 @@ function convertFromTemplate(signature, userListItem)
   signature = signature.replaceAll("Lastname", userListItem.name.familyName);
   signature = signature.replaceAll("email@salcanpt.com", userListItem.primaryEmail);
   signature = signature.replaceAll("+61400000000", phone);
+  signature = signature.replaceAll("FloorSection", userListItem.floorSection);
+  signature = signature.replaceAll("JobTitle",userListItem.jobTitle);
   return signature;
 }
 
@@ -361,6 +363,8 @@ function convertToTemplate(signature, userListItem)
   signature = signature.replaceAll(userListItem.name.familyName,"Lastname",);
   signature = signature.replaceAll(userListItem.primaryEmail,"email@salcanpt.com",);
   signature = signature.replaceAll(phone,"+61400000000");
+  signature = signature.replaceAll(userListItem.floorSection,"FloorSection");
+  signature = signature.replaceAll(userListItem.jobTitle,"JobTitle");
   return signature;
 }
 
