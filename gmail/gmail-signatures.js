@@ -251,7 +251,7 @@ async function handleSaveUpdateClick() {
   console.log("signature:" + sendAsEmail);
   if (sendAsEmail) {
     if (accessToken) {
-      const response = await fetch('https://3ufadbfj3b.execute-api.ap-southeast-2.amazonaws.com/default/gmail_signature?apiKey=yVxNbw7K3y4IS94BDKtMh9hAUiL0Y5oP6NdQEBs2', {
+      const response = await fetch('https://3ufadbfj3b.execute-api.ap-southeast-2.amazonaws.com/default/gmail_signature', {
         method: 'POST',
         body: {
           'accessToken': accessToken,
@@ -260,7 +260,8 @@ async function handleSaveUpdateClick() {
           "signature": document.getElementById('htmlContent').innerText
         }, // string or object
         headers: {
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json',
+          "x-api-key":"UY916OAT3j7sGMXmVYpmy7PSY9HPS0Ep9yX7zs23"
         }
       });
       const myJson = await response.json();
