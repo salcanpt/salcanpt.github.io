@@ -220,7 +220,7 @@ async function handleUpdateAllClick() {
                 if(myJson.status==200)
                 {
                   let tick=document.createElement("div");
-                  tick.style.position="relative";
+                  tick.style.position="absolute";
                   tick.style.top="5px";
                   tick.style.left="5px";
                   tick.style.width="20px";
