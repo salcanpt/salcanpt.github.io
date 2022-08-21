@@ -191,6 +191,7 @@ async function handleUpdateAllClick() {
           x = convertFromTemplate(x,userListXX);
           
           let x2 = document.createElement("div");
+          x2.style.position = "relative";
           x2.style.margin = "2px";
           x2.style.padding = "2px";
           x2.style.backgroundColor = "white";
@@ -219,7 +220,9 @@ async function handleUpdateAllClick() {
                 if(myJson.status==200)
                 {
                   let tick=document.createElement("div");
-                  tick.style.float="right";
+                  tick.style.position="relative";
+                  tick.style.top="5px";
+                  tick.style.left="5px";
                   tick.style.width="20px";
                   tick.style.height="20px";
                   tick.style.backgroundImage="url(/images/check-tick-icon-14141.png)"
