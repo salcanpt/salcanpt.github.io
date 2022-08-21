@@ -393,7 +393,7 @@ async function handleSaveTemplateClick()
   localStorage.setItem(template+"-"+(count+4),btoa(document.getElementById('htmlContent').innerText));
 }
 
-async function loadCashedTemplates()
+async function loadCachedTemplates()
 {
   var count=parseInt(localStorage.getItem("templateCount") || 0 );
   if(count>0)
@@ -413,3 +413,6 @@ async function loadCashedTemplates()
     }
   }
 }
+
+
+loadCachedTemplates();
