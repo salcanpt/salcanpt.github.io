@@ -76,6 +76,7 @@ let emailAddress = null;
 let isAdmin = null;
 let userList = null;
 let userListMe = null;
+let accessToken=null;
 
 function handleAuthClick() {
   tokenClient.callback = async (resp) => {
@@ -85,15 +86,7 @@ function handleAuthClick() {
     }
     document.getElementById('signout_button').style.visibility = 'visible';
     document.getElementById('authorize_button').innerText = 'Refresh';
-
-
-    console.log(resp);
-    console.log("gapi.client");
-    console.log(gapi.client);
-    //curl -X GET "https://www.googleapis.com/oauth2/v1/userinfo?alt=json" -H"Authorization: Bearer accessTokenHere"
-    //let r=(await gapi.client.oauth2.userinfo.get()).result;
-    //console.log(r);
-
+    accessToken=resp.access_token;
     try {
       let response = await gapi.client.gmail.users.getProfile({
         'userId': 'me'
@@ -258,6 +251,7 @@ async function handleSaveUpdateClick() {
   console.log("signature:" + sendAsEmail);
   if (sendAsEmail) {
     console.log("signature!!!!");
+    /*
     try {
       response = await gapi.client.gmail.users.settings.sendAs.patch({
         'userId': emailAddress,
@@ -271,6 +265,27 @@ async function handleSaveUpdateClick() {
       document.getElementById('content').innerText = err.message;
       return;
     }
+    */
+
+ if(accessToken)
+ {
+      const response = await fetch('https://3ufadbfj3b.execute-api.ap-southeast-2.amazonaws.com/default/gmail_signature', {
+        method: 'POST',
+        body: {
+          'accessToken':accessToken,
+          'userId': emailAddress,
+          'sendAsEmail': sendAsEmail,
+          "signature": document.getElementById('htmlContent').innerText
+        }, // string or object
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      });
+      const myJson = await response.json(); 
+      console.log(myJson);
+    }
+
+
   }
 
 }
