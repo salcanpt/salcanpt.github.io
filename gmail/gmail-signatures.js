@@ -256,7 +256,7 @@ async function handleSaveUpdateClick() {
           method: 'POST',
           body: JSON.stringify({
             'accessToken': accessToken,
-            'userId': emailAddress,
+            'emailAddress': emailAddress,
             'sendAsEmail': sendAsEmail,
             "signature": document.getElementById('htmlContent').innerText
           }), // string or object
