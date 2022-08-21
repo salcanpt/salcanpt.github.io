@@ -384,3 +384,8 @@ async function handleExampleClick(id) {
     document.getElementById('htmlContentOut').innerHTML = x;
   }
 }
+
+async function handleSaveTemplateClick()
+{
+  
+}
