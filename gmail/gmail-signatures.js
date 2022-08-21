@@ -327,7 +327,7 @@ function convertFromTemplate(signature, userListItem)
 }
 
 
-function convertToTemplate(signature, loadCachedTemplates)
+function convertToTemplate(signature, userListItem)
 {
 
   let phone=null;
