@@ -107,7 +107,7 @@ function handleAuthClick() {
         console.log(err);
         return;
       }
-      getMySignature({ primaryEmail: emailAddress });
+      
       if (isAdmin) {
 
         document.getElementById("updateallgmail_button").removeAttribute("disabled");
@@ -122,6 +122,7 @@ function handleAuthClick() {
                 userListMe = userList[i];
               }
             }
+            getMySignature({ primaryEmail: emailAddress });
 
           } catch (err) {
             console.log(err);
@@ -387,5 +388,5 @@ async function handleExampleClick(id) {
 
 async function handleSaveTemplateClick()
 {
-  
+
 }
