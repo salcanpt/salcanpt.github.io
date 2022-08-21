@@ -395,10 +395,18 @@ async function handleSaveTemplateClick()
 
   let b1=document.createElement("button");
   let b2=document.createElement("button");
+  let dItem=""+(count+4);
+  b2.onclick(()=>{
+    localStorage.removeItem("template-"+dItem);
+    document.getElementById("example"+dItem+"DeleteButton").remove();
+    document.getElementById("example"+dItem+"Button").remove();
+    document.getElementById("example"+dItem).remove();
+  });
   b1.id="example"+(count+4)+"Button";
   b1.onclick=handleExampleClick('example'+(i+4));
   b1.innerText="Use Example "+(i+4);
   b2.innerText="Delete";
+  b2.id="example"+(count+4)+"DeleteButton";
   let d1=document.createElement("div");
   d1.id="example"+(count+4);
   d1.innerHTML=document.getElementById('htmlContent').innerText;
@@ -419,20 +427,24 @@ async function loadCachedTemplates()
     {
       console.log("add=template-"+(i+4));
       let b64html=localStorage.getItem("template-"+(i+4));
-      let b1=document.createElement("button");
-      let b2=document.createElement("button");
-      b1.id="example"+(i+4)+"Button";
-      b1.onclick=handleExampleClick('example'+(i+4));
-      b1.innerText="Use Example "+(i+4);
-      b2.innerText="Delete";
-      let d1=document.createElement("div");
-      d1.id="example"+(i+4);
-      d1.innerHTML=atob(b64html);
-      document.getElementById('examples').appendChild(b1);
-      document.getElementById('examples').appendChild(b2);
-      document.getElementById('examples').appendChild(d1);  
-      document.getElementById('examples').appendChild(document.createElement("br"));   
-      document.getElementById('examples').appendChild(document.createElement("br"));      
+      if(b64html)
+      {
+        let b1=document.createElement("button");
+        let b2=document.createElement("button");
+        b1.id="example"+(i+4)+"Button";
+        b1.onclick=handleExampleClick('example'+(i+4));
+        b1.innerText="Use Example "+(i+4);
+        b2.innerText="Delete";
+        let d1=document.createElement("div");
+        d1.id="example"+(i+4);
+        d1.innerHTML=atob(b64html);
+        document.getElementById('examples').appendChild(b1);
+        document.getElementById('examples').appendChild(b2);
+        document.getElementById('examples').appendChild(d1);  
+        document.getElementById('examples').appendChild(document.createElement("br"));   
+        document.getElementById('examples').appendChild(document.createElement("br")); 
+      }
+     
     }
   }
 }
