@@ -390,7 +390,7 @@ async function handleSaveTemplateClick()
 {
   var count=parseInt(localStorage.getItem("templateCount") || "0" );
   localStorage.setItem(count,""+(count+1));
-  localStorage.setItem(template+"-"+(count+4),btoa(document.getElementById('htmlContent').innerText));
+  localStorage.setItem("template-"+(count+4),btoa(document.getElementById('htmlContent').innerText));
 }
 
 async function loadCachedTemplates()
@@ -400,7 +400,7 @@ async function loadCachedTemplates()
   {
     for(let i=0;i<count;i++)
     {
-      let b64html=localStorage.getItem(template+"-"+(i+4));
+      let b64html=localStorage.getItem("template-"+(i+4));
       let b1=document.createElement("button");
       b1.id="example"+(i+4)+"Button";
       b1.onclick=handleExampleClick('example'+(i+4));
