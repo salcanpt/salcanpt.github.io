@@ -388,14 +388,14 @@ async function handleExampleClick(id) {
 
 async function handleSaveTemplateClick()
 {
-  var count=parseInt(localStorage.getItem("templateCount") || 0 );
+  var count=parseInt(localStorage.getItem("templateCount") || "0" );
   localStorage.setItem(count,""+(count+1));
   localStorage.setItem(template+"-"+(count+4),btoa(document.getElementById('htmlContent').innerText));
 }
 
 async function loadCachedTemplates()
 {
-  var count=parseInt(localStorage.getItem("templateCount") || 0 );
+  var count=parseInt(localStorage.getItem("templateCount") || "0" );
   if(count>0)
   {
     for(let i=0;i<count;i++)
