@@ -185,7 +185,7 @@ function handlePreviewAllClick() {
   }
 }
 
-function handleUpdateAllClick() {
+async function handleUpdateAllClick() {
 
   document.getElementById("updateallgmail_button").setAttribute("disabled","true");
   if (isAdmin) {
