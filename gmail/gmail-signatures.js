@@ -110,7 +110,7 @@ function handleAuthClick() {
       
       if (isAdmin) {
 
-        document.getElementById("updateallgmail_button").removeAttribute("disabled");
+        document.getElementById("previewallgmail_button").removeAttribute("disabled");
         setTimeout(async () => {
 
           try {
