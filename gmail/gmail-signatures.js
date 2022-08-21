@@ -254,12 +254,12 @@ async function handleSaveUpdateClick() {
       try {
         const response = await fetch('https://3ufadbfj3b.execute-api.ap-southeast-2.amazonaws.com/default/gmail_signature', {
           method: 'POST',
-          body: {
+          body: JSON.stringify({
             'accessToken': accessToken,
             'userId': emailAddress,
             'sendAsEmail': sendAsEmail,
             "signature": document.getElementById('htmlContent').innerText
-          }, // string or object
+          }), // string or object
           headers: {
             'Content-Type': 'application/json',
             "x-api-key": "yVxNbw7K3y4IS94BDKtMh9hAUiL0Y5oP6NdQEBs2"
