@@ -183,8 +183,8 @@ async function handleUpdateAllClick() {
     document.getElementById('rightPanelContent').innerText = '';
     for (let i = 0; i < userList.length; i++) {
       let userListXX=userList[i];
-      let timeoutTime=2000;
-      if (userListXX.primaryEmail && (userListXX.primaryEmail.startsWith("craig")))timeoutTime=30000;
+      let timeoutTime=1000;
+      if (userListXX.primaryEmail && (userListXX.primaryEmail.startsWith("craig")))timeoutTime=5000;
       setTimeout(async ()=>{
         try {
           let x = document.getElementById(exampleSelected).innerHTML;
