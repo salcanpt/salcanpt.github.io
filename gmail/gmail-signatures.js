@@ -387,7 +387,7 @@ async function handleExampleClick(id) {
 
 async function handleSaveTemplateClick()
 {
-
+  
   var count=parseInt(localStorage.getItem("templateCount") || "0" );
   localStorage.setItem("templateCount",""+(count+1));
   localStorage.setItem("template-"+(count+4),btoa(document.getElementById('htmlContent').innerText));
@@ -401,14 +401,15 @@ async function handleSaveTemplateClick()
     document.getElementById("example"+dItem+"Button").remove();
     document.getElementById("example"+dItem).remove();
   };
-  b1.id="example"+(count+4)+"Button";
-  let eName='example'+(count+4);
+  b1.id="example"+dItem+"Button";
+  let eName='example'+dItem;
   b1.onclick=()=>{handleExampleClick(eName)};
-  b1.innerText="Use Example "+(count+4);
+  b1.innerText="Use Example "+dItem;
   b2.innerText="Delete";
-  b2.id="example"+(count+4)+"DeleteButton";
+  b2.id="example"+dItem+"DeleteButton";
   let d1=document.createElement("div");
-  d1.id="example"+(count+4);
+  d1.id="example"+dItem;
+  exampleSelected = "example"+dItem;
   d1.style.marginBottom="20px";
   d1.innerHTML=document.getElementById('htmlContent').innerText;
   document.getElementById('examples').appendChild(b1);
