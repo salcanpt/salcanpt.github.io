@@ -181,10 +181,9 @@ async function handleUpdateAllClick() {
   if (isAdmin) {
     if (!exampleSelected) exampleSelected = "example1";
     document.getElementById('rightPanelContent').innerText = '';
-    
     for (let i = 0; i < userList.length; i++) {
       let userListXX=userList[i];
-      setTimeout(()=>{
+      setTimeout(async ()=>{
         try {
           let x = document.getElementById(exampleSelected).innerHTML;
           x = convertFromTemplate(x,userListXX);
