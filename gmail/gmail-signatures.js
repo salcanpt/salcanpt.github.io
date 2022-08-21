@@ -392,6 +392,21 @@ async function handleSaveTemplateClick()
   var count=parseInt(localStorage.getItem("templateCount") || "0" );
   localStorage.setItem(count,""+(count+1));
   localStorage.setItem("template-"+(count+4),btoa(document.getElementById('htmlContent').innerText));
+
+  let b1=document.createElement("button");
+  let b2=document.createElement("button");
+  b1.id="example"+(count+4)+"Button";
+  b1.onclick=handleExampleClick('example'+(i+4));
+  b1.innerText="Use Example "+(i+4);
+  b2.innerText="Delete";
+  let d1=document.createElement("div");
+  d1.id="example"+(count+4);
+  d1.innerHTML=document.getElementById('htmlContent').innerText;
+  document.getElementById('examples').appendChild(b1);
+  document.getElementById('examples').appendChild(b2);
+  document.getElementById('examples').appendChild(d1);  
+  document.getElementById('examples').appendChild(document.createElement("br"));   
+  document.getElementById('examples').appendChild(document.createElement("br")); 
 }
 
 async function loadCachedTemplates()
