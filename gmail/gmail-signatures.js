@@ -340,9 +340,9 @@ function convertToTemplate(signature, userListItem)
   if(phone.startsWith("61"))phone="+61"+phone.substring(2);
   if(phone.startsWith("+61 "))phone="+61"+phone.substring(4);
 
-  signature = signature.replaceAll( userListMe.name.givenName,"Firstname");
-  signature = signature.replaceAll(userListMe.name.familyName,"Lastname",);
-  signature = signature.replaceAll(userListMe.primaryEmail,"email@salcanpt.com",);
+  signature = signature.replaceAll( userListItem.name.givenName,"Firstname");
+  signature = signature.replaceAll(userListItem.name.familyName,"Lastname",);
+  signature = signature.replaceAll(userListItem.primaryEmail,"email@salcanpt.com",);
   signature = signature.replaceAll(phone,"+61400000000");
   return signature;
 }
