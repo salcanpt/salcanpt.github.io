@@ -314,7 +314,7 @@ function convertFromTemplate(signature, userListItem)
     for(let j=0;phone=null && j<userListItem.phones.length;j++)if(userListItem.phones[j].type=="work")phone=value;
     for(let j=0;phone=null && j<userListItem.phones.length;j++)phone=value;
   }
-  if(phone==null) phone=serList[i].recoveryPhone || "n/a";
+  if(phone==null) phone=userList[i].recoveryPhone || "n/a";
   if(phone.startsWith("04"))phone="+61"+phone.substring(2);
   if(phone.startsWith("61"))phone="+61"+phone.substring(2);
   if(phone.startsWith("+61 "))phone="+61"+phone.substring(4);
@@ -336,7 +336,7 @@ function convertToTemplate(signature, userListItem)
     for(let j=0;phone=null && j<userListItem.phones.length;j++)if(userListItem.phones[j].type=="work")phone=value;
     for(let j=0;phone=null && j<userListItem.phones.length;j++)phone=value;
   }
-  if(phone==null) phone=serList[i].recoveryPhone || "n/a";
+  if(phone==null) phone=userList[i].recoveryPhone || "n/a";
   if(phone.startsWith("04"))phone="+61"+phone.substring(2);
   if(phone.startsWith("61"))phone="+61"+phone.substring(2);
   if(phone.startsWith("+61 "))phone="+61"+phone.substring(4);
