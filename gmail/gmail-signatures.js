@@ -389,7 +389,7 @@ async function handleSaveTemplateClick()
 {
 
   var count=parseInt(localStorage.getItem("templateCount") || "0" );
-  localStorage.setItem(count,""+(count+1));
+  localStorage.setItem("templateCount",""+(count+1));
   localStorage.setItem("template-"+(count+4),btoa(document.getElementById('htmlContent').innerText));
 
   let b1=document.createElement("button");
