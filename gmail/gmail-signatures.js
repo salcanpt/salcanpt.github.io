@@ -156,7 +156,7 @@ function handlePreviewAllClick() {
       try {
 
         let x = document.getElementById(exampleSelected).innerHTML;
-        x = convertFromTemplate(x,userListMe);
+        x = convertFromTemplate(x,userList[i]);
         
         let x2 = document.createElement("div");
         x2.style.margin = "2px";
