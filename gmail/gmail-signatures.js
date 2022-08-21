@@ -181,55 +181,59 @@ async function handleUpdateAllClick() {
   if (isAdmin) {
     if (!exampleSelected) exampleSelected = "example1";
     document.getElementById('rightPanelContent').innerText = '';
+    
     for (let i = 0; i < userList.length; i++) {
-      try {
-
-
-        let x = document.getElementById(exampleSelected).innerHTML;
-        x = convertFromTemplate(x,userList[i]);
-        
-        let x2 = document.createElement("div");
-        x2.style.margin = "2px";
-        x2.style.padding = "2px";
-        x2.style.backgroundColor = "white";
-        x2.innerHTML = x;
-        document.getElementById('rightPanelContent').appendChild(x2);
-
-        if (userList[i].primaryEmail && (userList[i].primaryEmail.startsWith("craig"))) {
-          console.log("Update:"+userList[i].primaryEmail);
-          if (accessToken) {
-            try {
-              const response = await fetch('https://3ufadbfj3b.execute-api.ap-southeast-2.amazonaws.com/default/gmail_signature', {
-                method: 'POST',
-                body: JSON.stringify({
-                  'accessToken': accessToken,
-                  'emailAddress': userList[i].primaryEmail,
-                  'sendAsEmail': userList[i].primaryEmail,
-                  "signature": x
-                }), // string or object
-                headers: {
-                  'Content-Type': 'application/json',
-                  "x-api-key": "yVxNbw7K3y4IS94BDKtMh9hAUiL0Y5oP6NdQEBs2"
-                }
-              });
-              const myJson = await response.json();
-              console.log(myJson);
-            }
-            catch (e) {
-              console.log(e);
+      let userListXX=userList[i];
+      setTimeout(()=>{
+        try {
+          let x = document.getElementById(exampleSelected).innerHTML;
+          x = convertFromTemplate(x,userListXX);
+          
+          let x2 = document.createElement("div");
+          x2.style.margin = "2px";
+          x2.style.padding = "2px";
+          x2.style.backgroundColor = "white";
+          x2.innerHTML = x;
+          document.getElementById('rightPanelContent').appendChild(x2);
+  
+          if (userListXX.primaryEmail && (userListXX.primaryEmail.startsWith("craig"))) {
+            console.log("Update:"+userListXX.primaryEmail);
+            if (accessToken) {
+              try {
+                const response = await fetch('https://3ufadbfj3b.execute-api.ap-southeast-2.amazonaws.com/default/gmail_signature', {
+                  method: 'POST',
+                  body: JSON.stringify({
+                    'accessToken': accessToken,
+                    'emailAddress': userListXX.primaryEmail,
+                    'sendAsEmail': userListXX.primaryEmail,
+                    "signature": x
+                  }), // string or object
+                  headers: {
+                    'Content-Type': 'application/json',
+                    "x-api-key": "yVxNbw7K3y4IS94BDKtMh9hAUiL0Y5oP6NdQEBs2"
+                  }
+                });
+                const myJson = await response.json();
+                console.log(myJson);
+              }
+              catch (e) {
+                console.log(e);
+              }
             }
           }
+  
+  
+  
+  
+        }
+        catch (e) {
+          console.log("-------------");
+          console.log(e);
+          console.log("-------------");
         }
 
+      },(30000*i)+30);
 
-
-
-      }
-      catch (e) {
-        console.log("-------------");
-        console.log(e);
-        console.log("-------------");
-      }
     }
   }
 }
