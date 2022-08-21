@@ -430,21 +430,21 @@ async function loadCachedTemplates()
       {
         let b1=document.createElement("button");
         let b2=document.createElement("button");  
-        let dItem=""+(count+4);
+        let dItem=""+(i+4);
         b2.onclick=()=>{
           localStorage.removeItem("template-"+dItem);
           document.getElementById("example"+dItem+"DeleteButton").remove();
           document.getElementById("example"+dItem+"Button").remove();
           document.getElementById("example"+dItem).remove();
         };
-        b1.id="example"+(i+4)+"Button";
-        let eName='example'+(i+4);
+        b1.id="example"+dItem+"Button";
+        let eName='example'+dItem;
         b1.onclick=()=>{handleExampleClick(eName)};
-        b1.innerText="Use Example "+(i+4);
+        b1.innerText="Use Example "+dItem;
         b2.innerText="Delete";
-        b2.id="example"+(count+4)+"DeleteButton";
+        b2.id="example"+dItem+"DeleteButton";
         let d1=document.createElement("div");
-        d1.id="example"+(i+4);
+        d1.id="example"+dItem;
         d1.innerHTML=atob(b64html);
         d1.style.marginBottom="20px";
         document.getElementById('examples').appendChild(b1);
