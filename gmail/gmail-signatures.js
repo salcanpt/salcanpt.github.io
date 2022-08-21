@@ -183,11 +183,23 @@ function handleUpdateAllClick() {
     document.getElementById('rightPanelContent').innerText = '';
     for (let i = 0; i < userList.length; i++) {
       try {
+
+        let phone=null;
+        if(userList[i].phones && userList[i].phones.length>0)
+        {
+          for(let j=0;phone=null && j<userList[i].phones.length;j++)if(userList[i].phones[j].type=="work")phone=value;
+          for(let j=0;phone=null && j<userList[i].phones.length;j++)phone=value;
+        }
+        if(phone==null) phone=serList[i].recoveryPhone || "n/a";
+        if(phone.startsWith("04"))phone="+61"+phone.substring(2);
+        if(phone.startsWith("61"))phone="+61"+phone.substring(2);
+        if(phone.startsWith("+61 "))phone="+61"+phone.substring(4);
+
         let x = document.getElementById(exampleSelected).innerHTML;
         x = x.replaceAll("Firstname", userList[i].name.givenName);
         x = x.replaceAll("Lastname", userList[i].name.familyName);
         x = x.replaceAll("email@salcanpt.com", userList[i].primaryEmail);
-        x = x.replaceAll("+61400000000", userList[i].recoveryPhone);
+        x = x.replaceAll("+61400000000", phone);
         let x2 = document.createElement("div");
         x2.style.margin = "2px";
         x2.style.padding = "2px";
