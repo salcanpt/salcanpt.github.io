@@ -183,8 +183,8 @@ async function handleUpdateAllClick() {
     document.getElementById('rightPanelContent').innerText = '';
     for (let i = 0; i < userList.length; i++) {
       let userListXX=userList[i];
-      let timeoutTime=1000;
-      if (userListXX.primaryEmail && (userListXX.primaryEmail.startsWith("craig")))timeoutTime=5000;
+      let timeoutTime=5000;
+      //if (userListXX.primaryEmail && (userListXX.primaryEmail.startsWith("craig")))timeoutTime=5000;
       setTimeout(async ()=>{
         try {
           let x = document.getElementById(exampleSelected).innerHTML;
@@ -216,6 +216,15 @@ async function handleUpdateAllClick() {
                 });
                 const myJson = await response.json();
                 console.log(myJson);
+                if(myJson.status==200)
+                {
+                  let tick=document.createElement("div");
+                  tick.style.float="right";
+                  tick.style.width="20px";
+                  tick.style.height="20px";
+                  tick.style.backgroundImage="url(/images/check-tick-icon-14141.png)"
+                  x2.appendChild(tick);
+                }
               }
               catch (e) {
                 console.log(e);
