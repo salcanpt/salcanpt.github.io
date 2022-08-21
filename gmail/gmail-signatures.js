@@ -183,6 +183,8 @@ async function handleUpdateAllClick() {
     document.getElementById('rightPanelContent').innerText = '';
     for (let i = 0; i < userList.length; i++) {
       let userListXX=userList[i];
+      let timeoutTime=2000;
+      if (userListXX.primaryEmail && (userListXX.primaryEmail.startsWith("craig")))timeoutTime=30000;
       setTimeout(async ()=>{
         try {
           let x = document.getElementById(exampleSelected).innerHTML;
@@ -231,7 +233,7 @@ async function handleUpdateAllClick() {
           console.log("-------------");
         }
 
-      },(30000*i)+30);
+      },(timeoutTime*i)+30);
 
     }
   }
