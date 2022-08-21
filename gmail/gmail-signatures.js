@@ -374,7 +374,7 @@ function convertToTemplate(signature, userListItem)
   signature = signature.replaceAll(userListItem.primaryEmail,"email@salcanpt.com",);
   signature = signature.replaceAll(phone,"+61400000000");
   console.log(userListItem);
-  if(userListItem.locations && userListItem.locations.length>0 && userListItem.locations[0] && userListItem.location[0]s.floorSection)signature = signature.replaceAll(userListItem.locations[0].floorSection,"Floor Section");
+  if(userListItem.locations && userListItem.locations.length>0 && userListItem.locations[0] && userListItem.locations[0].floorSection)signature = signature.replaceAll(userListItem.locations[0].floorSection,"Floor Section");
   if(userListItem.organizations && userListItem.organizations.length>0 && userListItem.organizations[0] && userListItem.organizations[0].title)signature = signature.replaceAll(userListItem.organizations[0].title,"Job Title");
   return signature;
 }
