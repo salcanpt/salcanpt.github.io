@@ -25,4 +25,6 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-    - run: dir
+    - run: |
+          cd gmail/scheduledjob
+          node ./index.js --token XXXXXXX
