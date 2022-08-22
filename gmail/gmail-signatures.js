@@ -234,10 +234,6 @@ async function handleUpdateAllClick() {
               }
             }
           }
-  
-  
-  
-  
         }
         catch (e) {
           console.log("-------------");
