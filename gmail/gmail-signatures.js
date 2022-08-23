@@ -198,7 +198,7 @@ async function handleUpdateAllClick() {
           x2.innerHTML = x;
           document.getElementById('rightPanelContent').appendChild(x2);
   
-          if (userListXX.primaryEmail && (userListXX.primaryEmail.startsWith("craig") || userListXX.primaryEmail.startsWith("luke"))) {
+          if (userListXX.primaryEmail) {
             console.log("Update:"+userListXX.primaryEmail);
             if (accessToken) {
               try {
