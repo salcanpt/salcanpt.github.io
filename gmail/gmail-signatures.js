@@ -386,7 +386,7 @@ async function handleSaveUpdateClick() {
             'accessToken': accessToken,
             'emailAddress': emailAddress,
             'sendAsEmail': sendAsEmail,
-            "signature": document.getElementById('htmlContent').innerText
+            "signature": convertFromTemplate(document.getElementById('htmlContent').innerText,userListMe)
           }), // string or object
           headers: {
             'Content-Type': 'application/json',
