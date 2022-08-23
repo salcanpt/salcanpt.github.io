@@ -188,7 +188,6 @@ async function handleUpdateAllClick() {
         try {
           let x = document.getElementById(exampleSelected).innerHTML;
           x = convertFromTemplate(x,userListXX);
-          
           let x2 = document.createElement("div");
           x2.style.position = "relative";
           x2.style.margin = "2px";
