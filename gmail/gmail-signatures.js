@@ -183,7 +183,7 @@ async function handleUpdateAllClick() {
     document.getElementById('rightPanelContent').innerText = '';
     for (let i = 0; i < userList.length; i++) {
       let userListXX=userList[i];
-      console.log(userListXX);
+      console.log(userListXX.primaryEmail);
       let timeoutTime=2000;
       setTimeout(async ()=>{
         try {
@@ -215,6 +215,7 @@ async function handleUpdateAllClick() {
                   }
                 });
                 const myJson = await response.json();
+                console.log("result:");
                 console.log(myJson);
                 if(myJson.status==200)
                 {
