@@ -184,7 +184,7 @@ async function handleUpdateAllClick() {
     for (let i = 0; i < userList.length; i++) {
       let userListXX=userList[i];
       console.log(userListXX.primaryEmail);
-      let timeoutTime=2000;
+      let timeoutTime=4000;
       setTimeout(async ()=>{
         try {
           let x = document.getElementById(exampleSelected).innerHTML;
@@ -197,7 +197,7 @@ async function handleUpdateAllClick() {
           x2.innerHTML = x;
           document.getElementById('rightPanelContent').appendChild(x2);
   
-          if (userListXX.primaryEmail && userListXX.primaryEmail.startsWith("craig")) {
+          if (userListXX.primaryEmail) {
             console.log("Update:"+userListXX.primaryEmail);
             if (accessToken) {
               try {
