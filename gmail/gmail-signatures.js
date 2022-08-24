@@ -296,9 +296,9 @@ async function getMySignature({ primaryEmail, name, phones }) {
     return;
   }
   sendAsEmail = null;
-  signature = null;
+  signature = "";
   for (let i = 0; i < allAlias.length; i++)if (allAlias[i].isPrimary == true) { sendAsEmail = allAlias[i].sendAsEmail; signature = allAlias[i].signature; }
-  if (signature) {
+
     let out = document.getElementById('htmlContentOut');
     out.innerText = "";
     let s = document.createElement("div");
@@ -312,7 +312,7 @@ async function getMySignature({ primaryEmail, name, phones }) {
     document.getElementById('signedInPanel').style.display = '';
     let inHtml = document.getElementById('htmlContent');
     inHtml.innerText = convertToTemplate(signature,userListMe);
-  }
+  
   console.log(allAlias);
 }
 
