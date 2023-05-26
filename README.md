@@ -1,1 +1,1 @@
-# salcanpt-trade.com
+# salcanpt.com
