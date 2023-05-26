@@ -1,0 +1,14 @@
+#Please use the main menu items under the "text"
+
+- text: Home
+  url: /
+- text: Industries
+  url: /pages/industries
+- text: Capabilities
+  url: /pages/capabilities
+#- text: Case Studies
+#  url: /pages/casestudies
+- text: Careers
+  url: /pages/careers
+- text: Contact
+  url: /pages/contact
