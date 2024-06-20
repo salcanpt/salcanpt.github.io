@@ -40,6 +40,7 @@ salcan:
   header_address: "Darra QLD 4076"
   header_phone: "1800 SALCAN"
   header_email: "info@salcanpt.com"
+  header_ABN: "70 161 056 408"
 
   #The words on the basic pages
   careers: Contact us now for opportunities in Electrical Engieering and Control Systems Integration.
