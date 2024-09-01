@@ -273,6 +273,7 @@ function handleUpdateClick() {
   let s = document.createElement("div");
   if(editor)
   {
+    console.log(editir.getValue());
     s.innerHTML = convertFromTemplate(editir.getValue(),userListMe);
   }
   else
