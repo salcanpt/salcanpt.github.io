@@ -156,7 +156,7 @@ function handlePreviewAllClick() {
     for (let i = 0; i < userList.length; i++) {
       try {
 
-        let x = document.getElementById(exampleSelected).inner;
+        let x = document.getElementById(exampleSelected).innerHTML;
         x = convertFromTemplate(x,userList[i]);
         
         let x2 = document.createElement("div");
