@@ -40,6 +40,8 @@ async function intializeGapiClient() {
   });
   gapiInited = true;
   maybeEnableButtons();
+  console.log("tinymce");
+  console.log(tinymce);
 }
 
 
