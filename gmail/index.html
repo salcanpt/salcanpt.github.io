@@ -1,0 +1,145 @@
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>Salcan Process Technology | Gmail Signature Editor</title>
+  
+  <meta name="description" content="Welcome to SALCAN Process Technology. SALCAN is an Industrial Process Control &amp; Automation consultancy as well as a licensed Electrical Contractor.">
+  
+  <meta name="keywords" content="Salcan Process Technology, Automation Engineering, Process control and Automation">
+  <meta name="author" content="Lucid Design,">
+  <meta name="google-site-verification" content="y3uQBwNTW8qCnpLDBtClI382gdWDF08qavmBtggALUQ">
+  
+<link rel="icon" href="/images/favicon.png" type="image/png">
+<link href="//fonts.googleapis.com/css?family=Signika+Negative:300,400,600,700" rel="stylesheet" type="text/css">
+<link href="/css/main.css" rel="stylesheet" type="text/css">
+<link href="/css/fontawesome.css" rel="stylesheet" type="text/css">
+</head>
+  <body id="home">
+  <div id="wrap" style="width:1300px">
+    <div id="header" class="clearfix">
+      <div id="logo">
+        <a href="/"><img src="/images/logo.png" title="Salcan Process Technology" alt="Salcan Process Technology"></a>
+      </div>
+      <div id="sections" class="clearfix">
+         <ul id="nav"><li class="selected" id="nav-home"><a href="/">Home</a></li><li id="nav-about-us"><a href="/about-us/">About Us</a></li><li id="nav-products"><a href="/products/">Products</a></li><li id="nav-services"><a href="/services/">Services</a></li><li id="nav-projects"><a href="/projects/">Projects</a></li><li id="nav-technology-notes"><a href="/technology-notes/">Blog</a></li><li id="nav-contact"><a href="/contact/">Contact</a></li></ul>
+      </div>
+   </div>
+  <div id="leftPanel" style="display:inline-block;width:700px;padding-top:5px">
+  <button id="authorize_button" onclick="handleAuthClick()">Sign In</button>
+  <button id="signout_button" onclick="handleSignoutClick()">Sign Out</button>
+  <div id="signedInPanel" style="display:none">
+  <p style="margin:1px;margin-top:5px;">Your Current Gmail Signature</p>
+  <div id="htmlContentOut" style="width:700px;height:150px;overflow:auto;background-color:white;font-size: small;line-height: 1.5;font-family: Arial, Helvetica, sans-serif;color:#343434"></div>
+  <p style="margin:1px;margin-top:5px;">Edit your current Gmail Signature</p>
+  <div id="htmlContent" contenteditable="true"
+    style="width:700px;height:200px;overflow:auto;border-style:solid;margin-bottom:10px;background-color:white;font-size: 8px;line-height: 1.5;font-family: Arial, Helvetica, sans-serif;color:#343434"></div>
+    <button id="update_button" onclick="handleUpdateClick()">Update Preview</button>
+    <button id="savetemplate_button" onclick="handleSaveTemplateClick()">Save as Template</button>
+  <button id="saveupdate_button" onclick="handleSaveUpdateClick()">Save to My Gmail</button>
+
+  <p style="margin:1px;margin-top:5px;">Example Templates</p>
+  <div id="examples" style="width:700px;height:200px;padding:2px;overflow:auto;background-color:white;font-size: small;line-height: 1.5;font-family: Arial, Helvetica, sans-serif;color:#343434;overflow-y:auto;overflow-x:none;">
+  <button id="example1Button" onclick="handleExampleClick('example1')" style="margin-bottom:20px">Use Example 1</button>
+  <div id="example1">
+    <div style="width:350px;background-color:#343434;color:#dddddd;border-radius:4px;padding:2px;margin:1px;">
+      <div
+        style="background-image:url(http://www.salcanpt.com/images/logo_192x50.png);width:72px;height:55px;float:left">
+      </div>
+      <p style="font-size:16px;margin:4px;padding-left:70px">Firstname Lastname <span style="font-size:8px;">Floor Section</span></p>
+      <p style="font-size:16px;margin:4px;padding-left:70px;font-style: italic;">Job Title</p>
+      <div style="font-size:12px;margin:4px;padding-left:70px"><div style="display:inline-block;color:#DC4F34;font-weight:900;width:15px;text-align:center">M</div> +61400000000</div>
+      <div style="font-size:12px;margin:4px;padding-left:70px;color:#dddddd"><div style="display:inline-block;color:#DC4F34;font-weight:900;width:15px;text-align:center">E</div>
+        <a href="mailto:email@salcanpt.com" style="color:#dddddd" target="_blank">email@salcanpt.com</a>
+    </div>
+      <div style="font-size:12px;margin:4px;padding-left:70px"><div style="display:inline-block;color:#DC4F34;font-weight:900;width:15px;text-align:center">W</div> <a href="https://www.salcanpt.com" style="color:#dddddd">www.salcanpt.com</a></div>
+    </div>
+    <p style="font-size:8px;margin:2px;padding-left:0px">
+      This email (including any attachments) may contain confidential and/or legally privileged information and is intended only to be read or used
+      by the addressee. If you are not the intended addressee, any use, distribution, disclosure or copying of this email is strictly prohibited.
+      </p>
+      <p style="font-size:8px;margin:2px;padding-left:0px">
+      Confidentiality and legal privilege attached to this email (including any attachments) are not waived or lost by reason of its mistaken delivery
+      to you. If you have received this email in error, please delete it and notify us immediately by telephone or email.
+      </p>
+  </div>
+  <button id="example2Button" onclick="handleExampleClick('example2')" style="margin-bottom:20px">Use Example 2</button>
+  <div id="example2">
+    <div style="color:#222222;border-radius:4px;padding:2px;margin:1px;">
+    <div style="background-image:url(http://www.salcanpt.com/images/logo_192x50.png);width:72px;height:55px;float:left">
+    </div>
+    <p style="font-size:16px;margin:4px;padding-left:70px">Firstname Lastname <span style="font-size:8px;">Floor Section</span></p>
+    <p style="font-size:10px;margin:4px;padding-left:70px;font-style: italic;">Job Title</p>
+    <p style="font-size:12px;margin:4px;padding-left:70px;font-weight:900">SALCAN Process Technology Pty Ltd</p>
+    <div style="font-size:12px;margin:4px;padding-left:70px;"><div style="display:inline-block;color:#DC4F34;font-weight:900;width:15px;text-align:center">M</div> +61400000000</div>
+    <div style="font-size:12px;margin:4px;padding-left:70px;color:#dddddd"><div style="display:inline-block;color:#DC4F34;font-weight:900;width:15px;text-align:center">E</div>
+    <a href="mailto:email@salcanpt.com" style="color:#343434" target="_blank">email@salcanpt.com</a>
+    </div>
+    <div style="font-size:12px;margin:4px;padding-left:70px"><div style="display:inline-block;color:#DC4F34;font-weight:900;width:15px;text-align:center">W</div> <a href="https://www.salcanpt.com" style="color:#343434">www.salcanpt.com</a></div>
+    </div>
+    <p style="font-size:8px;margin:2px;padding-left:0px">
+    This email (including any attachments) may contain confidential and/or legally privileged information and is intended only to be read or used
+    by the addressee. If you are not the intended addressee, any use, distribution, disclosure or copying of this email is strictly prohibited.
+    </p>
+    <p style="font-size:8px;margin:2px;padding-left:0px">
+    Confidentiality and legal privilege attached to this email (including any attachments) are not waived or lost by reason of its mistaken delivery
+    to you. If you have received this email in error, please delete it and notify us immediately by telephone or email.
+    </p>
+  </div>
+  <button id="example3Button" onclick="handleExampleClick('example3')" style="margin-bottom:20px">Use Example 3</button>
+  <div id="example3">
+    <div style="width:350px;background-color:#343434;color:#dddddd;border-radius:4px;padding:2px;margin:1px;">
+      <div
+        style="background-image:url(http://www.salcanpt.com/images/logo_192x50.png);width:72px;height:55px;float:left">
+      </div>
+      <p style="font-size:16px;margin:4px;padding-left:70px">Firstname Lastname <span style="font-size:8px;">Floor Section</span></p>
+      <p style="font-size:14px;margin:4px;padding-left:70px;font-style: italic;">Job Title</p>
+      <p style="font-size:12px;margin:4px;padding-left:70px;font-weight:900">SALCAN Process Technology Pty Ltd</p>
+      <div style="font-size:12px;margin:4px;padding-left:70px"><div style="display:inline-block;color:#DC4F34;font-weight:900;width:15px;text-align:center">M</div> +61400000000</div>
+      <div style="font-size:12px;margin:4px;padding-left:70px;color:#dddddd"><div style="display:inline-block;color:#DC4F34;font-weight:900;width:15px;text-align:center">E</div>
+        <a href="mailto:email@salcanpt.com" style="color:#dddddd" target="_blank">email@salcanpt.com</a>
+    </div>
+      <div style="font-size:12px;margin:4px;padding-left:70px"><div style="display:inline-block;color:#DC4F34;font-weight:900;width:15px;text-align:center">W</div> <a href="https://www.salcanpt.com" style="color:#dddddd">www.salcanpt.com</a></div>
+    </div>
+    <p style="font-size:8px;margin:2px;padding-left:0px">
+      This email (including any attachments) may contain confidential and/or legally privileged information and is intended only to be read or used
+      by the addressee. If you are not the intended addressee, any use, distribution, disclosure or copying of this email is strictly prohibited.
+      </p>
+      <p style="font-size:8px;margin:2px;padding-left:0px">
+      Confidentiality and legal privilege attached to this email (including any attachments) are not waived or lost by reason of its mistaken delivery
+      to you. If you have received this email in error, please delete it and notify us immediately by telephone or email.
+      </p>
+</div>
+<p style="font-size:8px;margin:2px;padding-left:0px;font-style:italic;width:1000px">
+  This email (including any attachments) may contain confidential and/or legally privileged information and is intended only to be read or used by the addressee. 
+  If you are not the intended addressee, any use, distribution, disclosure or copying of this email is strictly prohibited.
+  </p>
+  <p style="font-size:8px;margin:2px;padding-left:0px;font-style:italic;width:1000px">
+  Confidentiality and legal privilege attached to this email (including any attachments)
+  are not waived or lost by reason of its mistaken delivery to you. If you have received
+  this email in error, please delete it and notify us immediately by telephone or email.
+  </p>
+  </div>
+
+  </div>
+
+</div>
+
+<!-- TEST -->
+
+
+<div id="rightPanel" style="float:right;width:586px;padding:2px;padding-top:5px;padding-right:0px">
+  <button id="previewallgmail_button" disabled="true"  onclick="handlePreviewAllClick()">Preview All Accounts</button>
+  <button id="updateallgmail_button" disabled="true"  onclick="handleUpdateAllClick()">Update All Accounts</button>
+  <div id="rightPanelContent" style="width:590px;max-height:600px;overflow:auto;background-color:white;font-size: small;line-height: 1.5;font-family: Arial, Helvetica, sans-serif;color:#343434"></div>
+</div>
+
+
+  
+</div>
+<script src="gmail-signatures.js"></script>
+<script async defer src="https://apis.google.com/js/api.js" onload="gapiLoaded()"></script>
+<script async defer src="https://accounts.google.com/gsi/client" onload="gisLoaded()"></script>
+
+</body>
+
+</html>
+<!-- [END gmail_quickstart] -->
