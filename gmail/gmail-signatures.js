@@ -15,6 +15,7 @@ document.getElementById('authorize_button').style.visibility = 'hidden';
 document.getElementById('signout_button').style.visibility = 'hidden';
 document.getElementById('saveupdate_button').style.visibility = 'hidden';
 document.getElementById('update_button').style.visibility = 'hidden';
+document.getElementById('editor').style.display = 'none';
 document.getElementById('htmlContent').style.display = 'none';
 document.getElementById('htmlContentOut').style.display = 'none';
 document.getElementById('examples').style.display = 'none';
@@ -261,6 +262,7 @@ function handleSignoutClick() {
     document.getElementById('signout_button').style.visibility = 'hidden';
     document.getElementById('saveupdate_button').style.visibility = 'hidden';
     document.getElementById('update_button').style.visibility = 'hidden';
+    document.getElementById('editor').style.display = 'none';
     document.getElementById('htmlContent').style.display = 'none';
     document.getElementById('htmlContentOut').style.display = 'none';
     document.getElementById('examples').style.display = 'none';
@@ -269,7 +271,15 @@ function handleSignoutClick() {
 }
 function handleUpdateClick() {
   let s = document.createElement("div");
-  s.innerHTML = convertFromTemplate(document.getElementById('htmlContent').innerText,userListMe);
+  if(editor)
+  {
+    s.innerHTML = convertFromTemplate(document.getElementById('htmlContent').innerText,userListMe);
+  }
+  else
+  {
+    s.innerHTML = convertFromTemplate(editir.getValue(),userListMe);
+  }
+  
   let out = document.getElementById('htmlContentOut');
   out.innerText = "";
   out.appendChild(s);
@@ -308,18 +318,20 @@ async function getMySignature({ primaryEmail, name, phones }) {
     out.appendChild(s);
     document.getElementById('saveupdate_button').style.visibility = 'visible';
     document.getElementById('update_button').style.visibility = 'visible';
+    document.getElementById('editor').style.display = '';
     document.getElementById('htmlContent').style.display = '';
     document.getElementById('htmlContentOut').style.display = '';
     document.getElementById('examples').style.display = '';
     document.getElementById('signedInPanel').style.display = '';
-    let inHtml = document.getElementById('htmlContent');
-    inHtml.innerText = convertToTemplate(signature,userListMe);
+
     if(editor)
     {
       editor.setValue(convertToTemplate(signature,userListMe));
     }
-
-  
+    else
+    {
+      document.getElementById('htmlContent').innerText = convertToTemplate(signature,userListMe);
+    }
   console.log(allAlias);
 }
 
@@ -392,7 +404,7 @@ async function handleSaveUpdateClick() {
             'accessToken': accessToken,
             'emailAddress': emailAddress,
             'sendAsEmail': sendAsEmail,
-            "signature": convertFromTemplate(document.getElementById('htmlContent').innerText,userListMe)
+            "signature": convertFromTemplate(editor.getValue(),userListMe)
           }), // string or object
           headers: {
             'Content-Type': 'application/json',
@@ -412,7 +424,15 @@ async function handleExampleClick(id) {
   if (userListMe) {
     exampleSelected = id;
     let x = document.getElementById(exampleSelected).innerHTML;
-    document.getElementById('htmlContent').innerText = x;
+    if(editor)
+    {
+      editor.setValue(x);
+    }
+    else
+    {
+      document.getElementById('htmlContent').innerText = x;
+    }
+    
     document.getElementById('htmlContentOut').innerHTML = convertFromTemplate(x,userListMe);
   }
 }
@@ -422,7 +442,15 @@ async function handleSaveTemplateClick()
   
   var count=parseInt(localStorage.getItem("templateCount") || "0" );
   localStorage.setItem("templateCount",""+(count+1));
-  let tplate=convertToTemplate(document.getElementById('htmlContent').innerText,userListMe);
+  var tplate="";
+  if(editor)
+  {
+    tplate=convertToTemplate(editor.getValue(),userListMe);
+  }
+  else
+  {
+    tplate=convertToTemplate(document.getElementById('htmlContent').innerText,userListMe);
+  }
   localStorage.setItem("template-"+(count+4),btoa(tplate));
 
   let b1=document.createElement("button");
@@ -444,7 +472,15 @@ async function handleSaveTemplateClick()
   d1.id="example"+dItem;
   exampleSelected = "example"+dItem;
   d1.style.marginBottom="20px";
-  d1.innerHTML=document.getElementById('htmlContent').innerText;
+  if(editor)
+  {
+    d1.innerHTML=editor.getValue();
+  }
+  else
+  {
+    d1.innerHTML=document.getElementById('htmlContent').innerText;
+  }
+  
   document.getElementById('examples').appendChild(b1);
   document.getElementById('examples').appendChild(b2);
   document.getElementById('examples').appendChild(d1);  
