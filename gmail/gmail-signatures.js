@@ -156,7 +156,7 @@ function handlePreviewAllClick() {
     for (let i = 0; i < userList.length; i++) {
       try {
 
-        let x = document.getElementById(exampleSelected).innerHTML;
+        let x = document.getElementById(exampleSelected).inner;
         x = convertFromTemplate(x,userList[i]);
         
         let x2 = document.createElement("div");
@@ -263,8 +263,8 @@ function handleSignoutClick() {
     document.getElementById('saveupdate_button').style.visibility = 'hidden';
     document.getElementById('update_button').style.visibility = 'hidden';
     document.getElementById('editor').style.display = 'none';
-    document.getElementById('').style.display = 'none';
-    document.getElementById('Out').style.display = 'none';
+    document.getElementById('htmlContent').style.display = 'none';
+    document.getElementById('htmlContentOut').style.display = 'none';
     document.getElementById('examples').style.display = 'none';
     document.getElementById('signedInPanel').style.display = 'none';
   }
@@ -273,7 +273,7 @@ function handleUpdateClick() {
   let s = document.createElement("div");
   if(editor)
   {
-    s.innerHTML = convertFromTemplate(document.getElementById('').innerText,userListMe);
+    s.innerHTML = convertFromTemplate(document.getElementById('htmlContent').innerText,userListMe);
   }
   else
   {
