@@ -280,7 +280,7 @@ function handleUpdateClick() {
     s.innerHTML = convertFromTemplate(editir.getValue(),userListMe);
   }
   
-  let out = document.getElementById('Out');
+  let out = document.getElementById('htmlContentOut');
   out.innerText = "";
   out.appendChild(s);
 }
@@ -311,7 +311,7 @@ async function getMySignature({ primaryEmail, name, phones }) {
   signature = "";
   for (let i = 0; i < allAlias.length; i++)if (allAlias[i].isPrimary == true) { sendAsEmail = allAlias[i].sendAsEmail; signature = allAlias[i].signature; }
 
-    let out = document.getElementById('Out');
+    let out = document.getElementById('htmlContentOut');
     out.innerText = "";
     let s = document.createElement("div");
     s.innerHTML = signature;
