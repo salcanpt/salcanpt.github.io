@@ -35,7 +35,7 @@
 
     
   <p style="margin:1px;margin-top:5px;">Edit your current Gmail Signature</p>
-  <div id="htmlContent" contenteditable="true"
+  <div id="htmlContent" 
     style="width:700px;height:200px;" data-old="overflow:auto;border-style:solid;margin-bottom:10px;background-color:white;font-size: 8px;line-height: 1.5;font-family: Arial, Helvetica, sans-serif;color:#343434"></div>
   
     <button id="update_button" onclick="handleUpdateClick()">Update Preview</button>
@@ -146,7 +146,7 @@
 <script async defer src="https://accounts.google.com/gsi/client" onload="gisLoaded()"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.36.2/ace.js" type="text/javascript" charset="utf-8"></script>
 <script>
-    var editor = ace.edit("editor");
+    var editor = ace.edit("htmlContent");
     editor.setTheme("ace/theme/iplastic");
     editor.session.setMode("ace/mode/html");
 </script>
