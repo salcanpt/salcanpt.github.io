@@ -31,8 +31,14 @@
   <div id="signedInPanel" style="display:none">
   <p style="margin:1px;margin-top:5px;">Your Current Gmail Signature</p>
   <div id="htmlContentOut" style="width:700px;height:150px;overflow:auto;background-color:white;font-size: small;line-height: 1.5;font-family: Arial, Helvetica, sans-serif;color:#343434"></div>
-  <p style="margin:1px;margin-top:5px;">Experimental, finalise using put text below.</p>
+<!--
+    <p style="margin:1px;margin-top:5px;">Experimental, finalise using put text below.</p>
   <textarea id="htmeditor"></textarea> <script src="https://htmeditor.com/js/htmeditor.min.js" htmeditor_textarea="htmeditor" editor_height="280" run_local="no"> </script>
+-->
+  <div id="editor">function foo(items) {
+    var x = "All this is syntax highlighted";
+    return x;
+  }</div>
   <p style="margin:1px;margin-top:5px;">Edit your current Gmail Signature</p>
   <div id="htmlContent" contenteditable="true"
     style="width:700px;height:200px;overflow:auto;border-style:solid;margin-bottom:10px;background-color:white;font-size: 8px;line-height: 1.5;font-family: Arial, Helvetica, sans-serif;color:#343434"></div>
@@ -145,9 +151,9 @@
 <script async defer src="https://accounts.google.com/gsi/client" onload="gisLoaded()"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.36.2/ace.js" type="text/javascript" charset="utf-8"></script>
 <script>
-    var editor = ace.edit("htmlContent");
+    var editor = ace.edit("editor");
     editor.setTheme("ace/theme/monokai");
-    editor.session.setMode("ace/mode/html");
+    editor.session.setMode("ace/mode/javascript");
 </script>
 </body>
 
