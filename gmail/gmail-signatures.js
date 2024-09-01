@@ -314,6 +314,11 @@ async function getMySignature({ primaryEmail, name, phones }) {
     document.getElementById('signedInPanel').style.display = '';
     let inHtml = document.getElementById('htmlContent');
     inHtml.innerText = convertToTemplate(signature,userListMe);
+    if(editor)
+    {
+      editor.setValue(convertToTemplate(signature,userListMe));
+    }
+
   
   console.log(allAlias);
 }
