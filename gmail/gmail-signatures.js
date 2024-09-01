@@ -273,11 +273,11 @@ function handleUpdateClick() {
   let s = document.createElement("div");
   if(editor)
   {
-    s.innerHTML = convertFromTemplate(document.getElementById('htmlContent').innerText,userListMe);
+    s.innerHTML = convertFromTemplate(editir.getValue(),userListMe);
   }
   else
   {
-    s.innerHTML = convertFromTemplate(editir.getValue(),userListMe);
+    s.innerHTML = convertFromTemplate(document.getElementById('htmlContent').innerText,userListMe);
   }
   
   let out = document.getElementById('htmlContentOut');
