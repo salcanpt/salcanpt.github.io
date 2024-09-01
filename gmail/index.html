@@ -143,7 +143,12 @@
 <script src="gmail-signatures.js"></script>
 <script async defer src="https://apis.google.com/js/api.js" onload="gapiLoaded()"></script>
 <script async defer src="https://accounts.google.com/gsi/client" onload="gisLoaded()"></script>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.36.2/ace.js" type="text/javascript" charset="utf-8"></script>
+<script>
+    var editor = ace.edit("htmlContent");
+    editor.setTheme("ace/theme/monokai");
+    editor.session.setMode("ace/mode/html");
+</script>
 </body>
 
 </html>
