@@ -263,8 +263,8 @@ function handleSignoutClick() {
     document.getElementById('saveupdate_button').style.visibility = 'hidden';
     document.getElementById('update_button').style.visibility = 'hidden';
     document.getElementById('editor').style.display = 'none';
-    document.getElementById('htmlContent').style.display = 'none';
-    document.getElementById('htmlContentOut').style.display = 'none';
+    document.getElementById('').style.display = 'none';
+    document.getElementById('Out').style.display = 'none';
     document.getElementById('examples').style.display = 'none';
     document.getElementById('signedInPanel').style.display = 'none';
   }
@@ -273,14 +273,14 @@ function handleUpdateClick() {
   let s = document.createElement("div");
   if(editor)
   {
-    s.innerHTML = convertFromTemplate(document.getElementById('htmlContent').innerText,userListMe);
+    s.innerHTML = convertFromTemplate(document.getElementById('').innerText,userListMe);
   }
   else
   {
     s.innerHTML = convertFromTemplate(editir.getValue(),userListMe);
   }
   
-  let out = document.getElementById('htmlContentOut');
+  let out = document.getElementById('Out');
   out.innerText = "";
   out.appendChild(s);
 }
@@ -311,15 +311,23 @@ async function getMySignature({ primaryEmail, name, phones }) {
   signature = "";
   for (let i = 0; i < allAlias.length; i++)if (allAlias[i].isPrimary == true) { sendAsEmail = allAlias[i].sendAsEmail; signature = allAlias[i].signature; }
 
-    let out = document.getElementById('htmlContentOut');
+    let out = document.getElementById('Out');
     out.innerText = "";
     let s = document.createElement("div");
     s.innerHTML = signature;
     out.appendChild(s);
     document.getElementById('saveupdate_button').style.visibility = 'visible';
     document.getElementById('update_button').style.visibility = 'visible';
-    document.getElementById('editor').style.display = '';
-    document.getElementById('htmlContent').style.display = '';
+  if(editor)
+  {
+        document.getElementById('editor').style.display = '';
+  }
+  else
+  {
+        document.getElementById('htmlContent').style.display = '';
+  }
+
+
     document.getElementById('htmlContentOut').style.display = '';
     document.getElementById('examples').style.display = '';
     document.getElementById('signedInPanel').style.display = '';
