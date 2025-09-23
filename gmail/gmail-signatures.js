@@ -349,10 +349,20 @@ function convertFromTemplate(signature, userListItem)
   let phone=null;
   if(userListItem.phones && userListItem.phones.length>0)
   {
-    for(let j=0;phone=null && j<userListItem.phones.length;j++)if(userListItem.phones[j].type=="work")phone=value;
+    for (let j = 0; phone = null && j < userListItem.phones.length; j++)
+    {
+        if (userListItem.phones[j].type == "work")
+        {
+          console.log(userListItem.name.familyName + "work phone:" +phone);
+          phone = value;
+        }
+    }
     for(let j=0;phone=null && j<userListItem.phones.length;j++)phone=value;
   }
-  if(phone==null) phone=userListItem.recoveryPhone || "n/a";
+  if(phone==null){
+    console.log(userListItem.name.familyName + "n/a phone:" +phone);
+    phone=userListItem.recoveryPhone || "n/a";
+  }
   if(phone.startsWith("04"))phone="+61"+phone.substring(2);
   if(phone.startsWith("61"))phone="+61"+phone.substring(2);
   if(phone.startsWith("+61 "))phone="+61"+phone.substring(4);
