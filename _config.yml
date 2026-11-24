@@ -36,15 +36,15 @@ salcan:
   map: "/assets/img/map_salcan2.png" 
   office_hours: "Mon - Fri 7:00 am - 5:00 PM"
   enquiry_phone: "Mon - Fri 7:00 am - 5:00 PM"
-  send_an_email: "Send us and email and we will get back to you as soon as possible."
+  send_an_email: "Send us an email and we will get back to you as soon as possible."
   header_address: "Darra QLD 4076"
   header_phone: "1800 SALCAN"
   header_email: "info@salcanpt.com"
   header_ABN: "70 161 056 408"
 
   #The words on the basic pages
-  careers: Contact us now for opportunities in Electrical Engieering and Control Systems Integration.
-  casestudies: Below are some exmaple cases studies to consider.
+  careers: Contact us now for opportunities in Electrical Engineering and Control Systems Integration.
+  casestudies: Below are some example cases studies to consider.
   industries:
     energy: >- # this means to ignore newlines, you still need to indent
       SALCAN provides design, construction, integration, commissioning and maintenance services across multiple fuel 
